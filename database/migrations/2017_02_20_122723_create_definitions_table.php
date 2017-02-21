@@ -14,10 +14,11 @@ class CreateDefinitionsTable extends Migration
     public function up()
     {
         Schema::create('definitions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id')->index();
             $table->string('Code')->unique();
             $table->longText('Indicator_name');
-            $table->longText('Long_definition');
+            $table->string('Long_definition',10000);
             $table->longText('Source');
             $table->timestamps();
         });

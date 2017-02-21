@@ -14,6 +14,7 @@ class CreateYearsValuesTable extends Migration
     public function up()
     {
         Schema::create('years_values', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('source_id')->unsigned()->index();
 
@@ -28,7 +29,7 @@ class CreateYearsValuesTable extends Migration
                   ->on('country_infos')
                   ->onDelete('cascade');
             $table->string('years');
-            $table->decimal('value');
+            $table->double('value');
             $table->timestamps();
         });
     }

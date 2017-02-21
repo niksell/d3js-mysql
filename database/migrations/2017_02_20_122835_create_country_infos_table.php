@@ -14,6 +14,7 @@ class CreateCountryInfosTable extends Migration
     public function up()
     {
         Schema::create('country_infos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('source_id')->unsigned()->index();
 
