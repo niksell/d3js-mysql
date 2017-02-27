@@ -34,7 +34,5 @@ LINES TERMINATED BY '\r\n'
 
 (@seriesNameColumn,@seriesCodeColumn,@countryNameColumn,@countryCodeColumn,years,year_value)
 
-SET country_id = (SELECT id FROM country_infos WHERE source_id =(SELECT id FROM definitions WHERE Code =@seriesCodeColumn) AND country = @countryNameColumn), 
-source_id= (SELECT id FROM definitions WHERE Code =@seriesCodeColumn);
-
-
+SET source_id= (SELECT id FROM definitions WHERE Code =@seriesCodeColumn),
+country_id =(SELECT id FROM country_infos WHERE source_id =years_values.source_id AND country = @countryNameColumn) ;
