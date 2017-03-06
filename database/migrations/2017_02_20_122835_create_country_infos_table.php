@@ -15,13 +15,7 @@ class CreateCountryInfosTable extends Migration
     {
         Schema::create('country_infos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('source_id')->unsigned()->index();
-
-            $table->foreign('source_id')
-                  ->references('id')
-                  ->on('definitions')
-                  ->onDelete('cascade');
+            $table->increments('id')->unsigned()->index();
             $table->string('country');
             $table->string('country_code');
 
