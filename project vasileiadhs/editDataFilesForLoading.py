@@ -97,10 +97,11 @@ for line in readFile:
 	
 		fields[j] = fields[j].replace('"',' ')
 		columns[j] = columns[j].replace('"',' ')
+		year = columns[j].split()[0]
 		editLine1 = ""
 		
 		fields[j] = fields[j].replace('..',str(0))
-		editLine1 = editLine + '"' + columns[j].strip() + '"' + "," + '"' + fields[j].strip() + '"'
+		editLine1 = editLine + '"' + year.strip() + '"' + "," + '"' + fields[j].strip() + '"'
 			
 		writeFile.write(editLine1+'\n')
 
