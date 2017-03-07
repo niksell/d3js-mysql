@@ -86,7 +86,7 @@ halfDec = 1
 result = int(columns[4].split()[0]) + 4
 halfDecade = columns[4].split()[0][-2:] + "-" + str(result)[-2:] 
 
-decade = int(columns[4].split()[0]) + 10
+decade = int(columns[4].split()[0]) 
 
 for year in range(4,len(columns)):
 
@@ -99,7 +99,7 @@ for year in range(4,len(columns)):
 	if dec > 10:
 	
 		dec = 1
-		decade = int(columns[year].split()[0]) + 10
+		decade = int(columns[year].split()[0])
 		
 	halfDecades[columns[year].split()[0].strip()] = halfDecade
 	decades[columns[year].split()[0].strip()] = decade
