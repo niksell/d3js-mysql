@@ -1,0 +1,87 @@
+<md-content class="padded-content-page">
+
+        <div layout="row" layout-xs="column" layout-margin>
+
+            <tri-widget flex title="customers" content-layout="column" content-layout-align="center">
+              <md-toolbar ng-hide="vm.selected.length || vm.filter.show" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="vm.filter.show = true">
+                <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+            <form flex="" name="vm.filter.form">
+                <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="vm.removeFilter()">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+        <div class="md-toolbar-tools" layout-align="start center">
+            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'customers' : 'customer'}} selected
+              <md-button ng-click="vm.deleteCustomer()" class="md-icon-button" aria-label="Delete customer">
+                  <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+              </md-button>
+
+            </div>
+
+        </div>
+    </md-toolbar>
+
+                <md-table-container>
+                  <table ng-show="empty" >
+                      <h2 ng-show="empty">no records found</h2>
+                  </table>
+                    <table md-table class="md-primary md-data-table" ng-model="vm.selected"  ng-hide="empty" md-row-select multiple md-progress="vm.promise">
+                        <thead md-head md-order="vm.query.order" md-on-reorder="vm.getUsers">
+                            <tr md-row>
+                                <th md-column md-numeric md-order-by="First name" decend-first>First name</th>
+                                <th md-column md-order-by="LastName">LastName</th>
+                                <th md-column md-order-by="email">email</th>
+                                <th md-column md-order-by="phone">phone</th>
+                                <th md-column  md-order-by="Active">Active</th>
+                                <th md-column  md-order-by="Subscription">Subscription</th>
+                                <th md-column>Details</th>
+                                <th md-column>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-auto-select md-select="customer" ng-repeat="customer in customers | orderBy: vm.query.order | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+                                <td md-cell>{{::customer.firstname }}</td>
+                                <td md-cell>{{::customer.lastname}}</td>
+                                <td md-cell>{{::customer.email}}</td>
+
+                                <td md-cell>{{::customer.mobile}}</td>
+                                <td md-cell><md-icon style="color:green;"ng-show="customer.active"md-font-icon="fa fa-check"></md-icon>
+                                  <md-icon style="color:red" ng-hide="customer.active"md-font-icon="fa fa-times"></md-icon>
+                                </td>
+                                <td md-cell><md-icon style="color:green;"ng-show="customer.subscriber"md-font-icon="fa fa-check"></md-icon>
+                                  <md-icon style="color:red" ng-hide="customer.subscriber"md-font-icon="fa fa-times"></md-icon>
+                                </td>
+                                <td md-cell>
+                                    <md-button ng-click="vm.CustomerDetail(customer, $event)" class="md-icon-button" aria-label="Open customer">
+                                        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                    </md-button>
+                                </td>
+                                <td md-cell>
+
+                                    <md-button ng-click="vm.editCustomer(customer, $event)" class="md-icon-button" aria-label="Edit customer">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.query.total}}" md-on-paginate="pageController"md-page-select></md-table-pagination>
+            </tri-widget>
+        </div>
+
+</md-content>

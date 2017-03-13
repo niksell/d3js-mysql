@@ -1,0 +1,205 @@
+<md-dialog class="mobile-fullwidth-dialog" flex="60" flex-xs="100">
+    <md-toolbar class="toolbar-default" ng-style="{ 'background-color': vm.selectedColor.backgroundColor, color: vm.selectedColor.textColor }">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span translate>{{::vm.dialogData.title}}</span>
+                <span ng-show="vm.event.title"> - {{vm.event.title}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.cancelClick()" aria-label="cancel">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+    <div layout="row" class="business" layout-wrap>
+        <div flex="100" flex-gt-md="100">
+            <md-tabs md-dynamic-height md-border-bottom class="md-primary" md-selected="selectedTabIndex" md-stretch-tabs="always">
+                <md-tab label="info">
+                    <md-content class="md-padding">
+                        <form name="info">
+                            <md-input-container class="md-block">
+                                <label translate>Name</label>
+                                <input ng-model="vm.event.name" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>Slug</label>
+                                <input ng-model="vm.event.slug" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>description</label>
+                                <input rows="5" ng-model="vm.event.desc" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>email</label>
+                                <input ng-model="vm.event.email" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>alternative email</label>
+                                <input ng-model="vm.event.alt_email" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>mobile</label>
+                                <input ng-model="vm.event.mobile" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>alternative phone</label>
+                                <input ng-model="vm.event.alt_phone" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>website</label>
+                                <input ng-model="vm.event.website" required>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <md-checkbox class="md-warn" ng-model="vm.event.check" aria-label="Warn Checkbox">
+                                    Active
+                                </md-checkbox>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>languages</label>
+                                <md-select multiple class="padding-right-10" placeholder="languages" ng-model="vm.event.langua">
+                                    <md-option ng-repeat="languages in languageSettings" ng-value="languages.id">{{languages.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            </di>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Social">
+                    <md-content class="md-padding">
+                        <form name="Social">
+                          <md-input-container class="md-block">
+                              <label translate>Fb</label>
+                              <input ng-model="vm.event.fb" required>
+                          </md-input-container>
+                          <md-input-container class="md-block">
+                              <label translate>twitter</label>
+                              <input ng-model="vm.event.tweet" required>
+                          </md-input-container>
+                          <md-input-container class="md-block">
+                              <label translate>vimeo</label>
+                              <input rows="5" ng-model="vm.event.vimeo" required>
+                          </md-input-container>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Taxonomies">
+                    <md-content class="md-padding">
+                        <form name="Taxonomies">
+
+                          <md-input-container class="md-block">
+                          <!--v-accordion class="vAccordion--default">
+
+                            <v-pane ng-repeat="tax in TaxonomiesSettings" expanded="tax.isExpanded">
+                              <v-pane-header>
+                                {{tax.slug }}
+                              </v-pane-header>
+
+                              <v-pane-content>
+                                {{ tax.slug }}
+
+                                <v-accordion ng-if="tax.children">
+                                  <v-pane ng-repeat="taxy in tax.children" ng-disabled="tax.isDisabled">
+                                    <v-pane-header>
+                                      {{ ::taxy.slug }}
+                                    </v-pane-header>
+                                    <v-pane-content>
+                                          <div ng-click="vm.test(taxy.id)" ng-model="vm.event.tax" ng-value="taxy.id">{{taxy.slug}}</div>
+                                      <v-accordion ng-if="taxy.children">
+                                        <v-pane ng-repeat="taxies in taxy.children" ng-disabled="taxy.isDisabled">
+                                          <v-pane-header>
+                                            {{ ::taxies.slug }}
+                                          </v-pane-header>
+                                          <v-pane-content>
+                                            {{ ::taxies.slug }}
+                                            <v-accordion ng-if="taxies.children">
+                                              <v-pane ng-repeat="ta in taxies.children" ng-disabled="taxies.isDisabled">
+                                                <v-pane-header>
+                                                  {{ ::ta.slug }}
+                                                </v-pane-header>
+                                                <v-pane-content>
+                                                      <div ng-click="vm.test()" ng-model="vm.event.tax" ng-value="ta.id">{{ta.slug}}</div>
+                                                  <v-accordion ng-if="ta.children">
+                                                    <v-pane ng-repeat="t in ta.children" ng-disabled="ta.isDisabled">
+                                                      <v-pane-header>
+                                                        {{ ::t.slug }}
+                                                      </v-pane-header>
+                                                      <v-pane-content>
+                                                        {{ ::t.slug }}
+                                                      </v-pane-content>
+                                                    </v-pane>
+                                                  </v-accordion>
+
+                                                </v-pane-content>
+                                              </v-pane>
+                                            </v-accordion>
+                                          </v-pane-content>
+                                        </v-pane>
+                                      </v-accordion>
+
+                                    </v-pane-content>
+                                  </v-pane>
+                                </v-accordion>
+                              </v-pane-content>
+                            </v-pane>
+
+                          </v-accordion-->
+                        </md-input-container>
+                          <md-input-container>
+
+                        <multiselect-searchtree
+                          multi-select="true"
+                          data-input-model="TaxonomiesSettings"
+                          data-output-model="output_data_1"
+                          data-callback="CustomCallback(item, selectedItems)"
+                          data-select-only-leafs="true">
+                      </multiselect-searchtree>
+                      </md-input-container>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Media">
+                    <md-content class="md-padding">
+                        <div ng-repeat="step in stepsModel">
+                            <img class="thumb" ng-src="{{step}}" />
+                        </div>
+
+                        <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" multiple />
+                    </md-content>
+                    <md-input-container class="md-block">
+                        <label translate>Video</label>
+                        <input ng-model="vm.event.video" required>
+                    </md-input-container>
+                </md-tab>
+                <md-tab label="Location">
+                    <div id="map_canvas" style="margin: 268px;">
+                        <script type="text/ng-template" id="searchbox.tpl.html">
+                            <input type="text" placeholder="Search Box">
+                        </script>
+                        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" parentdiv="searchbox.parentdiv"></ui-gmap-search-box>
+
+                            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                            </ui-gmap-marker>
+                        </ui-gmap-google-map>
+
+                    </div>
+                    <md-content class="md-padding">
+                        <form name="Location">
+
+                        </form>
+
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </div>
+    </div>
+    <md-dialog-actions layout="row">
+        <md-button class="md-warn" ng-click="vm.deleteClick()" aria-label="{{'Delete' | triTranslate}}" ng-show="vm.edit" translate="Delete"></md-button>
+        <span flex></span>
+        <md-button ng-click="vm.cancelClick()" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button>
+        <md-button ng-click="vm.okClick()" class="md-primary" ng-disabled="eventForm.$invalid" aria-label="{{vm.dialogData.confirmButtonText | triTranslate}}" translate="{{::vm.dialogData.confirmButtonText}}"></md-button>
+
+    </md-dialog-actions>
+</md-dialog>

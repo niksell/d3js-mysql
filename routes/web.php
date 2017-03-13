@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home', function () {
+    return view('index');
+}]);
 Route::get('/import_definitions','ImportController@importDefinitions');
 Route::get('/import_countrys','ImportController@importCountrys');
 Route::get('/import_years','ImportController@importyears');

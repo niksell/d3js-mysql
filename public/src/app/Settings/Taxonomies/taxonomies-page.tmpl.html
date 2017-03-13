@@ -1,0 +1,135 @@
+<md-content class="padded-content-page">
+
+        <div layout="row" layout-xs="column" layout-margin>
+
+            <tri-widget flex title="Taxonomys" content-layout="column" content-layout-align="center">
+              <md-toolbar ng-hide="vm.selected.length || vm.filter.show" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="vm.filter.show = true">
+                <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+            <form flex="" name="vm.filter.form">
+                <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="vm.removeFilter()">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+        <div class="md-toolbar-tools" layout-align="start center">
+            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'Taxonomys' : 'Taxonomy'}} selected
+              <md-button ng-click="vm.deleteTaxonomies()" class="md-icon-button" aria-label="Delete Taxonomy">
+                  <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+              </md-button>
+
+            </div>
+
+        </div>
+    </md-toolbar>
+
+    <md-content class="md-padding">
+
+          <v-accordion class="vAccordion--default">
+
+            <v-pane ng-repeat="tax in Taxonomies" expanded="tax.isExpanded">
+              <v-pane-header>
+                {{tax.slug }}
+              </v-pane-header>
+
+              <v-pane-content>
+                {{ tax.slug }}
+                    <md-button ng-click="vm.TaxonomyDetail(tax, $event)" class="md-icon-button" aria-label="Open Taxonomy">
+                        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                    </md-button>
+
+                    <md-button ng-click="vm.editTaxonomy(tax, $event)" class="md-icon-button" aria-label="Edit editTaxonomy">
+                        <md-icon md-font-icon="fa fa-edit"></md-icon>
+                    </md-button>
+                <v-accordion ng-if="tax.children">
+                  <v-pane ng-repeat="taxy in tax.children" ng-disabled="tax.isDisabled">
+                    <v-pane-header>
+                      {{ ::taxy.slug }}
+                    </v-pane-header>
+                    <v-pane-content>
+                          {{taxy.slug}}
+                          <md-button ng-click="vm.TaxonomyDetail(tax, $event)" class="md-icon-button" aria-label="Open Taxonomy">
+                              <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                          </md-button>
+
+                          <md-button ng-click="vm.editTaxonomy(tax, $event)" class="md-icon-button" aria-label="Edit editTaxonomy">
+                              <md-icon md-font-icon="fa fa-edit"></md-icon>
+                          </md-button>
+                      <v-accordion ng-if="taxy.children">
+                        <v-pane ng-repeat="taxies in taxy.children" ng-disabled="taxy.isDisabled">
+                          <v-pane-header>
+                            {{ ::taxies.slug }}
+                          </v-pane-header>
+                          <v-pane-content>
+                            {{ ::taxies.slug }}
+                                <md-button ng-click="vm.TaxonomyDetail(tax, $event)" class="md-icon-button" aria-label="Open Taxonomy">
+                                    <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                </md-button>
+
+                                <md-button ng-click="vm.editTaxonomy(tax, $event)" class="md-icon-button" aria-label="Edit editTaxonomy">
+                                    <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                </md-button>
+                            <v-accordion ng-if="taxies.children">
+                              <v-pane ng-repeat="ta in taxies.children" ng-disabled="taxies.isDisabled">
+                                <v-pane-header>
+                                  {{ ::ta.slug }}
+                                </v-pane-header>
+                                <v-pane-content>
+                                      {{ta.slug}}
+                                          <md-button ng-click="vm.TaxonomyDetail(tax, $event)" class="md-icon-button" aria-label="Open Taxonomy">
+                                              <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                          </md-button>
+
+                                          <md-button ng-click="vm.editTaxonomy(tax, $event)" class="md-icon-button" aria-label="Edit editTaxonomy">
+                                              <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                          </md-button>
+                                  <v-accordion ng-if="ta.children">
+                                    <v-pane ng-repeat="t in ta.children" ng-disabled="ta.isDisabled">
+                                      <v-pane-header>
+                                        {{ ::t.slug }}
+                                      </v-pane-header>
+                                      <v-pane-content>
+                                        {{ ::t.slug }}
+                                            <md-button ng-click="vm.TaxonomyDetail(tax, $event)" class="md-icon-button" aria-label="Open Taxonomy">
+                                                <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                            </md-button>
+
+                                            <md-button ng-click="vm.editTaxonomy(tax, $event)" class="md-icon-button" aria-label="Edit editTaxonomy">
+                                                <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                            </md-button>
+                                      </v-pane-content>
+                                    </v-pane>
+                                  </v-accordion>
+
+                                </v-pane-content>
+                              </v-pane>
+                            </v-accordion>
+                          </v-pane-content>
+                        </v-pane>
+                      </v-accordion>
+
+                    </v-pane-content>
+                  </v-pane>
+                </v-accordion>
+              </v-pane-content>
+            </v-pane>
+
+          </v-accordion>
+
+    </md-content>
+            </tri-widget>
+        </div>
+
+</md-content>

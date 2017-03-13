@@ -1,0 +1,186 @@
+<div>
+
+    <div layout="row" layout-align="center center">
+        <p flex="70"  flex-xs="90" class="md-headline font-weight-300 text-center text-light" translate></p>
+    </div>
+
+    <div flex layout="row" layout-align="center center" layout-fill>
+        <md-card flex="90" class="tri-wizard-card md-whiteframe-z1 margin-bottom-100" tri-wizard>
+            <md-toolbar class="md-primary">
+                <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                    <h2>New Activity</h2><h2> {{triWizard.progress}}% <span translate>Complete</span></h2>
+                </div>
+                <md-progress-linear class="md-accent padding-bottom-10" md-mode="determinate" ng-value="triWizard.progress"></md-progress-linear>
+            </md-toolbar>
+            <md-card-content>
+                <md-tabs class="md-primary" layout-fill md-selected="triWizard.currentStep" md-dynamic-height>
+                    <md-tab id="account">
+                        <md-tab-label>
+                            <span class="oxy-step-label">1</span>
+                            <span translate>Contact</span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <md-content class="md-padding">
+                                <form name="accountForm" tri-wizard-form novalidate>
+                                    <div>
+                                        <md-input-container class="md-block">
+                                            <label translate>Name</label>
+                                            <input name="name" ng-model="vm.event.name" required>
+                                            <div ng-messages="accountForm.name.$error" md-auto-hide="false" ng-show="accountForm.name.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label>Email</label>
+                                            <input type="email" name="email" ng-model="vm.event.email" required>
+                                            <div ng-messages="accountForm.email.$error" md-auto-hide="false" ng-show="accountForm.email.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+                                                <div ng-message when="email">
+                                                    <span translate>Please enter a valid email</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label>Mobile</label>
+                                            <input type="mobile" name="mobile" ng-model="vm.event.mobile" required>
+                                            <div ng-messages="accountForm.mobile.$error" md-auto-hide="false" ng-show="accountForm.mobile.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label>website</label>
+                                            <input type="website" name="website" ng-model="vm.event.website" required>
+                                            <div ng-messages="accountForm.website.$error" md-auto-hide="false" ng-show="accountForm.website.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label>Description</label>
+                                            <input type="text" name="description" ng-model="vm.event.description" required>
+                                            <div ng-messages="accountForm.description.$error" md-auto-hide="false" ng-show="accountForm.description.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+                                </form>
+                            </md-content>
+                        </md-tab-body>
+                    </md-tab>
+                    <md-tab id="address" ng-disabled="accountForm.$invalid">
+                        <md-tab-label>
+                            <span class="oxy-step-label">2</span>
+                            <span translate>location</span>
+                        </md-tab-label>
+                        <md-tab-body>
+
+
+                                              <div id="map_canvas" style="margin: 268px;">
+                                                  <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                                                      <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                                                      </ui-gmap-marker>
+                                                  </ui-gmap-google-map>
+
+                                                </div>
+                                                <form name="addressForm" tri-wizard-form>
+                                                    <div>
+
+<md-content class="md-padding">
+                                        <div layout layout-xs="column" >
+
+                                            <md-input-container >
+                                              <label>Label</label>
+                                              <input type="Label" name="Label" ng-model="vm.event.description" required>
+                                              <div ng-messages="accountForm.Label.$error" md-auto-hide="false" ng-show="accountForm.Label.$touched">
+
+
+                                              </div>
+                                            </md-input-container>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+                            </md-content>
+                        </md-tab-body>
+                    </md-tab>
+                    <md-tab id="billing" ng-disabled="addressForm.$invalid">
+                        <md-tab-label>
+                            <span class="oxy-step-label">3</span>
+                            <span translate>Basic Info</span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <md-content class="md-padding">
+                                <form name="billingForm" tri-wizard-form>
+                                    <div>
+                                        <md-input-container class="md-block">
+                                            <label translate>Title</label>
+                                            <input name="title" ng-model="vm.event.title" required>
+                                            <div ng-messages="billingForm.title.$error" md-auto-hide="false" ng-show="billingForm.title.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label translate>Availability</label>
+                                            <input name="Availability" ng-model="vm.event.Availability" required>
+                                            <div ng-messages="billingForm.Availability.$error" md-auto-hide="false" ng-show="billingForm.Availability.$touched">
+                                                <div ng-message when="required">
+                                                    <span translate>This field is required</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout layout-xs="column" flex>
+                                      <md-input-container class="md-block">
+                                          <label translate>language</label>
+                                          <input name="language" ng-model="vm.event.language" required>
+                                          <div ng-messages="billingForm.language.$error" md-auto-hide="false" ng-show="billingForm.language.$touched">
+                                              <div ng-message when="required">
+                                                  <span translate>This field is required</span>
+                                              </div>
+                                          </div>
+                                      </md-input-container>
+                                    </div>
+                                </form>
+                            </md-content>
+                        </md-tab-body>
+                    </md-tab>
+                    <md-tab id="confirm" ng-disabled="billingForm.$invalid">
+                        <md-tab-label>
+                            <span class="oxy-step-label">4</span>
+                            <span translate>Confirmation</span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <md-content class="md-padding">
+                                <div class="padding-40" flex layout="column" layout-align="center center">
+                                    <md-icon class="big-icon" md-font-icon="zmdi zmdi-cake"></md-icon>
+                                    <h2 class="md-display-2" translate>Congratulations - we will be in touch</h2>
+                                </div>
+                            </md-content>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary md-raised" ng-click="triWizard.prevStep()" ng-hide="triWizard.currentStep > 2" ng-disabled="triWizard.prevStepDisabled()" translate="Previous"></md-button>
+                <md-button class="md-primary md-raised" ng-click="triWizard.nextStep()" ng-hide="triWizard.progress == 100 && triWizard.currentStep > 1" ng-disabled="triWizard.nextStepDisabled()" translate="Next"></md-button>
+                <md-button class="md-accent md-raised" ng-click="triWizard.currentStep = 3" ng-show="triWizard.progress == 100 && triWizard.currentStep < 3" translate="Send"></md-button>
+            </md-card-actions>
+        </div>
+    </md-card>
+</div>

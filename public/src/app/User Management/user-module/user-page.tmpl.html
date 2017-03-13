@@ -1,0 +1,115 @@
+<md-content class="padded-content-page">
+
+
+        <div layout="row" layout-xs="column" layout-margin>
+
+            <tri-widget flex title="Users" content-layout="column" content-layout-align="center">
+              <md-toolbar ng-hide="vm.selected.length || vm.filter.show" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="vm.filter.show = true">
+                <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+            <form flex="" name="vm.filter.form">
+                <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search" ng-change="vm.getUsers()">
+            </form>
+            <md-button class="md-icon-button" ng-click="vm.removeFilter()">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+        <div class="md-toolbar-tools" layout-align="start center">
+            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected
+              <md-button ng-click="vm.deleteUser()" class="md-icon-button" aria-label="Delete User">
+                  <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+              </md-button>
+
+            </div>
+
+        </div>
+    </md-toolbar>
+
+                <md-table-container>
+                  <table md-table class="md-primary md-data-table" md-row-select ng-model="vm.selected" md-progress="vm.promise" ng-show="sear">
+                        <thead md-head md-order="vm.query.order" md-on-reorder="vm.getUsers">
+                          <tr md-row>
+                              <th md-column md-numeric md-order-by="id" decend-first>Id</th>
+                              <th md-column md-order-by="firstname">Firstname</th>
+                              <th md-column md-order-by="lastname">Lastname</th>
+
+                              <th md-column  md-order-by="role">Role</th>
+
+                              <th md-column>Details</th>
+                              <th md-column>Edit</th>
+                          </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-auto-select md-select="user" ng-repeat="user in Susers">
+                              <td md-cell>{{::user.id }}</td>
+                              <td md-cell>{{::user.firstname}}</td>
+                              <td md-cell>{{::user.lastname}}</td>
+
+                              <td md-cell>{{::user.roles[0].name}}</td>
+
+                              <td md-cell>
+                                  <md-button ng-click="vm.UserDetail(user, $event)" class="md-icon-button" aria-label="Open User">
+                                      <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                  </md-button>
+                              </td>
+                              <td md-cell>
+
+                                  <md-button ng-click="vm.editUser(user, $event)" class="md-icon-button" aria-label="Edit User">
+                                      <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                  </md-button>
+                              </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <table md-table class="md-primary md-data-table" ng-model="vm.selected" md-row-select multiple md-progress="vm.promise" ng-hide="sear">
+                        <thead md-head md-order="vm.query.order" md-on-reorder="vm.getUsers">
+                            <tr md-row>
+                                <th md-column md-numeric md-order-by="id" decend-first>Id</th>
+                                <th md-column md-order-by="firstname">Firstname</th>
+                                <th md-column md-order-by="lastname">Lastname</th>
+
+                                <th md-column  md-order-by="role">Role</th>
+
+                                <th md-column>Details</th>
+                                <th md-column>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-auto-select md-select="employee" ng-repeat="employee in employees | orderBy: vm.query.order | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+                                <td md-cell>{{::employee.id }}</td>
+                                <td md-cell>{{::employee.firstname}}</td>
+                                <td md-cell>{{::employee.lastname}}</td>
+
+                                <td md-cell>{{::employee.roles[0].name}}</td>
+
+                                <td md-cell>
+                                    <md-button ng-click="vm.UserDetail(employee, $event)" class="md-icon-button" aria-label="Open User">
+                                        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                    </md-button>
+                                </td>
+                                <td md-cell>
+
+                                    <md-button ng-click="vm.editUser(employee, $event)" class="md-icon-button" aria-label="Edit User">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.query.total}}" md-on-paginate="pagecontroller"md-page-select></md-table-pagination>
+            </tri-widget>
+        </div>
+
+</md-content>

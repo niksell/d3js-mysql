@@ -1,0 +1,154 @@
+<div class="dashboard-container overlay-10 padded-content-page" layout="column">
+    <div layout="row" class="business" layout-sm="column" layout-margin>
+        <div flex="100" flex-gt-md="100">
+
+            <md-tabs md-dynamic-height md-border-bottom class="md-primary" md-selected="selectedTabIndex" md-stretch-tabs="always">
+                <md-tab label="Contact">
+
+                    <md-content class="md-padding">
+                        <form name="Contact">
+                            <md-input-container class="md-block">
+                                <label for="title" translate>Title</label>
+                                <input id="title" label="title" name="title" type="text" ng-model="vm.act.title" required/>
+                                <div ng-messages="act.name.$error" md-auto-hide="false" ng-show="act.title.$touched">
+                                    <div ng-message when="required"><span translate>Title</span></div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="slug" translate>Slug</label>
+                                <input id="slug" label="slug" name="slug" type="text" ng-model="vm.bus.slug" required/>
+                                <div ng-messages="act.slug.$error" md-auto-hide="false" ng-show="vm.act.slug.$touched">
+                                    <div ng-message when="required"><span translate>Please enter your Slug</span></div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="description" translate>description</label>
+                                <input id="description" label="description" name="description" rows="5" type="text" ng-model="vm.act.description" required/>
+                                <div ng-messages="act.description.$error" md-auto-hide="false" ng-show="act.description.$touched">
+                                    <div ng-message when="required"><span translate>Please enter your description</span></div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="summary" translate>Summary</label>
+                                <input id="summary" label="summary" name="summary" type="summary" ng-model="vm.act.summary" required/>
+                                <div ng-messages="act.summary.$error" md-auto-hide="false" ng-show="act.summary.$touched">
+                                    <div ng-message when="required">
+                                        <span translate>Please enter your Summary</span>
+                                    </div>
+                                    <
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label for="availability" translate>availability</label>
+                                <input id="availability" label="availability" name="availability" type="text" ng-model="vm.act.availability" />
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="duration" translate>duration</label>
+                                <input id="duration" label="duration" name="duration" type="text" ng-model="vm.act.duration" required/>
+                                <div ng-messages="act.duration.$error" md-auto-hide="false" ng-show="act.duration.$touched">
+                                    <div ng-message when="required"><span translate>Please enter your duration</span></div>
+                                </div>
+                            </md-input-container>
+
+                            <md-button class="md-raised md-primary margin-left-0" ng-click="updateContact()" translate="Update "></md-button>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="location">
+
+                    <div id="map_canvas" style="margin: 268px;">
+                        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
+                            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                            </ui-gmap-marker>
+                        </ui-gmap-google-map>
+
+                    </div>
+                    <form name="addressForm">
+                        <div>
+
+                            <md-content class="md-padding">
+                                <div layout layout-xs="column">
+
+                                    <md-input-container>
+                                        <label>Label</label>
+                                        <input type="Label" name="Label" ng-model="vm.event.description" required>
+                                        <div ng-messages="accountForm.Label.$error" md-auto-hide="false" ng-show="accountForm.Label.$touched">
+
+
+                                        </div>
+                                    </md-input-container>
+                                </div>
+
+
+                        </div>
+                    </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Basic Info">
+                    <md-content class="md-padding">
+                        <form name="billingForm">
+                            <div>
+                                <md-input-container class="md-block">
+                                    <label translate>Slug</label>
+                                    <input name="slug" ng-model="vm.event.slug" required>
+                                    <div ng-messages="billingForm.title.$error" md-auto-hide="false" ng-show="billingForm.title.$touched">
+                                        <div ng-message when="required">
+                                            <span translate>This field is required</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-list>
+                                    <md-list-item layout="row" layout-align="space-between center">
+                                        <p translate>All day</p>
+                                        <md-switch class="md-secondary" ng-model="vm.event.allDay" ng-change="vm.allDayChanged()"></md-switch>
+                                    </md-list-item>
+                                </md-list>
+                                <div class="event-dialog-input-row" layout="row" layout-align="start center">
+                                    <p flex hide-xs translate>Start</p>
+                                    <md-datepicker ng-model="vm.start" md-placeholder="Start"></md-datepicker>
+                                </div>
+
+                                <div class="event-dialog-input-row" layout="row" layout-align="start center" ng-hide="vm.event.allDay">
+                                    <p translate flex hide-xs>End</p>
+                                    <md-datepicker ng-model="vm.end" md-placeholder="End"></md-datepicker>
+                                </div>
+                                <div class="event-dialog-input-row" layout="row" layout-align="start center" ng-hide="vm.event.allDay">
+                                    <p flex translate>Duration</p>
+                                    <div layout="row" layout-align="end center">
+                                        <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                                        <md-select class="padding-right-10" placeholder="Hour" ng-model="vm.event.DurationHour">
+                                            <md-option ng-repeat="hou in hours" ng-value="hou">{{hou }}</md-option>
+                                        </md-select>
+                                        <md-select class="padding-right-10" placeholder="Minute" ng-model="vm.event.DurationMinute">
+                                            <md-option ng-repeat="minut in minutes" ng-value="minut">{{minut }}</md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div layout layout-xs="column" flex>
+                                <md-input-container class="md-block">
+                                    <label translate>language</label>
+                                    <input name="language" ng-model="vm.event.language" required>
+                                    <div ng-messages="billingForm.language.$error" md-auto-hide="false" ng-show="billingForm.language.$touched">
+                                        <div ng-message when="required">
+                                            <span translate>This field is required</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Confirmation">
+                    <md-content class="md-padding">
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+
+        </div>
+
+
+    </div>
+
+</div>

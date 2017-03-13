@@ -1,0 +1,42 @@
+<md-dialog class="detail-dialog mobile-fullwidth-dialog" flex="60" flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 flex >
+                <span translate>Flag #</span><span>{{vm.flag.id}}</span>
+            </h2>
+            <md-button class="md-icon-button" ng-click="vm.printClick()" aria-label="print">
+                <md-icon md-font-icon="zmdi zmdi-print"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="vm.cancelClick()" aria-label="cancel">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content class="md-dialog-content">
+        <div flex layout="row" class="margin-bottom-10">
+            <div flex>
+                <strong translate>Name</strong>
+            </div>
+            <div flex>
+                <span>{{vm.flag.name}}</span>
+            </div>
+        </div>
+        <div flex layout="row" class="margin-bottom-10">
+            <div flex>
+                <strong translate>Machine Name</strong>
+            </div>
+            <div flex>
+                <span>{{vm.flag.machine}}</span>
+            </div>
+        </div>
+
+
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="vm.okClick()" class="md-primary" aria-label="{{Ok | triTranslate}}" translate="Ok"></md-button>
+    </md-dialog-actions>
+</md-dialog>

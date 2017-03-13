@@ -1,0 +1,52 @@
+<md-card class="no-padding-card">
+    <md-card-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="language">
+                <md-content>
+                    <md-table-container>
+                        <table md-table class="md-data-table">
+                            <thead md-head md-order="vm.tableQueries.languages.order">
+                                <tr md-row>
+                                    <th md-column md-order-by="language">Language</th>
+                                    <th md-column md-numeric md-order-by="sessions">Sessions</th>
+                                    <th md-column md-numeric md-desc md-order-by="percent">% Sessions</th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="language in vm.languages | orderBy: vm.tableQueries.languages.order | limitTo: vm.tableQueries.languages.limit : (vm.tableQueries.languages.page -1) * vm.tableQueries.languages.limit">
+                                    <td md-cell>{{::language.language}}</td>
+                                    <td md-cell>{{::language.sessions | number}}</td>
+                                    <td md-cell>{{::language.percent}}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                    <md-table-pagination md-limit="vm.tableQueries.languages.limit" md-page="vm.tableQueries.languages.page" md-total="{{vm.languages.length}}" md-page-select></md-table-pagination>
+                </md-content>
+            </md-tab>
+            <md-tab label="country">
+                <md-content>
+                    <md-table-container>
+                        <table md-table class="md-data-table">
+                            <thead md-head md-order="vm.tableQueries.countries.order">
+                                <tr md-row>
+                                    <th md-column md-order-by="language">Language</th>
+                                    <th md-column md-numeric md-order-by="sessions">Sessions</th>
+                                    <th md-column md-numeric md-desc md-order-by="percent">% Sessions</th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="country in vm.countries | orderBy: vm.tableQueries.countries.order | limitTo: vm.tableQueries.countries.limit : (vm.tableQueries.countries.page -1) * vm.tableQueries.countries.limit">
+                                    <td md-cell>{{::country.country}}</td>
+                                    <td md-cell>{{::country.sessions}}</td>
+                                    <td md-cell>{{::country.percent}}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                    <md-table-pagination md-limit="vm.tableQueries.countries.limit" md-page="vm.tableQueries.countries.page" md-total="{{vm.countries.length}}" md-page-select></md-table-pagination>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-card-content>
+</md-card>

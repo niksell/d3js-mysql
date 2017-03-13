@@ -1,0 +1,9 @@
+<md-card flex md-colors="::{ background: vm.background, color: vm.color }">
+    <md-card-content layout="row" layout-align="space-between">
+        <md-icon class="font-size-5 margin-left-10 inherit-color" md-font-icon="{{vm.icon}}"></md-icon>
+        <div layout="column">
+            <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="vm.count" decimals="0"></p>
+            <p class="md-body-2 margin-top-0 margin-bottom-0" translate>{{vm.title}}</p>
+        </div>
+    </md-card-content>
+</md-card>

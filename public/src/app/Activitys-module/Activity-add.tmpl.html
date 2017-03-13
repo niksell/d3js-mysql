@@ -1,0 +1,55 @@
+<md-dialog class="mobile-fullwidth-dialog" flex="60" flex-xs="100">
+    <md-toolbar class="toolbar-default" ng-style="{ 'background-color': vm.selectedColor.backgroundColor, color: vm.selectedColor.textColor }">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span translate>{{::vm.dialogData.title}}</span>
+                <span ng-show="vm.dialogData.title">{{::vm.dialogData.title}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.cancelClick()" aria-label="cancel">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+
+    <md-dialog-content class="md-dialog-content">
+        <form class="event-dialog-form" name="eventForm">
+            <md-input-container class="md-block">
+                <label translate>Title</label>
+                <input ng-model="vm.event.titl" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>Slug</label>
+                <input ng-model="vm.event.slug" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>description</label>
+                <input rows="5"ng-model="vm.event.desc" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>summary</label>
+                <input ng-model="vm.event.summary" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>availability</label>
+                <input ng-model="vm.event.availability" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>duration</label>
+                <input ng-model="vm.event.duration" required>
+            </md-input-container>
+
+
+
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button class="md-warn" ng-click="vm.deleteClick()" aria-label="{{'Delete' | triTranslate}}" ng-show="vm.edit" translate="Delete"></md-button>
+        <span flex></span>
+        <md-button ng-click="vm.cancelClick()" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button>
+        <md-button ng-click="vm.okClick()" class="md-primary" ng-disabled="eventForm.$invalid" aria-label="{{vm.dialogData.confirmButtonText | triTranslate}}" translate="{{::vm.dialogData.confirmButtonText}}"></md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,23 @@
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Overview</span>
+            <span class="md-subhead">{{vm.start.toDate() | date:'fullDate'}} - {{vm.end.toDate() | date:'fullDate'}}</span>
+        </md-card-header-text>
+        <md-menu>
+            <md-button aria-label="Change timespan" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin md-font-icon="zmdi zmdi-more-vert"></md-icon>
+            </md-button>
+            <md-menu-content>
+                <md-menu-item ng-repeat="span in vm.timeSpans">
+                    <md-button ng-click="vm.onTimeChange({ span: span })">
+                        {{span.name}}
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </md-card-header>
+    <md-card-content>
+        <nvd3 options="vm.options" data="vm.data"></nvd3>
+    </md-card-content>
+</md-card>

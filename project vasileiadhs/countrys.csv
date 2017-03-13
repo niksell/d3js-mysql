@@ -1,0 +1,20 @@
+id,country,country_code,created_at,updated_at
+1,Luxembourg,LUX,NULL,NULL
+2,Germany,DEU,NULL,NULL
+3,Finland,FIN,NULL,NULL
+4,Lithuania,LTU,NULL,NULL
+5,"Slovak Republic",SVK,NULL,NULL
+6,Latvia,LVA,NULL,NULL
+7,Malta,MLT,NULL,NULL
+8,Slovenia,SVN,NULL,NULL
+9,Cyprus,CYP,NULL,NULL
+10,Ireland,IRL,NULL,NULL
+11,Belgium,BEL,NULL,NULL
+12,Portugal,PRT,NULL,NULL
+13,Italy,ITA,NULL,NULL
+14,Netherlands,NLD,NULL,NULL
+15,Spain,ESP,NULL,NULL
+16,Austria,AUT,NULL,NULL
+17,Greece,GRC,NULL,NULL
+18,Estonia,EST,NULL,NULL
+19,France,FRA,NULL,NULL

@@ -1,0 +1,14 @@
+// Authentication Pages
+#ui-login {
+  overflow: auto;
+  &.ng-enter {
+    @include fadeIn($delay: 0.5s);
+  }
+  &.ng-leave {
+    @include fadeOut();
+  }
+}
+
+md-input-container ng-messages, md-input-container data-ng-messages {
+  display: block;
+}

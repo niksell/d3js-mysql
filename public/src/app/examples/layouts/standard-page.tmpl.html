@@ -1,0 +1,39 @@
+<div class="md-padding">
+    <h2 class="md-display-1">Standard Page Example</h2>
+
+    <p>Here is how to make a simple page in triangular.</p>
+
+    <h3 class="md-subheading">Create a ui state</h3>
+
+    <p>First of all in your module config create a state and url for the page to load on.</p>
+
+    <p>Make sure you add the <code>triangular.</code> to the beginning of your state.  This will make ui router add the triangular toolbar, sidebar, etc.</p>
+
+    <div class="md-whiteframe-4dp" layout="column">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                my-module.config.js
+            </div>
+        </md-toolbar>
+        <div hljs language="js">
+    (function() {
+        'use strict';
+
+        angular
+            .module('app.my-module')
+            .config(moduleConfig);
+
+        /* @ngInject */
+        function moduleConfig($stateProvider) {
+            $stateProvider
+            .state('triangular.my-page',  {
+                url: '/my-page',
+                templateUrl: 'app/my-module/my-page.tmpl.html'
+            })
+        });
+    })();
+        </div>
+    </div>
+
+    <p>Now when you goto <code>/my-page</code> in your browser you will see the contents of <code>my-page.tmpl.html</code> inside the triangular app layout.</p>
+</div>

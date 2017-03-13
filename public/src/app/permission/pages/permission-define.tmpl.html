@@ -1,0 +1,39 @@
+<div class="md-padding">
+    <h2 class="md-display-1">Defining Roles & Permissions</h2>
+
+    <p>To get started we recommend looking at the example app and how the roles and permissions are defined there.</p>
+
+    <p>Take a look at the file <code>permission/permission.run.js</code> to see how the apps roles & permissions.</p>
+    <p>For example</p>
+
+    <div class="md-whiteframe-1dp" layout="column">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>permission/permission.run.js</h2>
+            </div>
+        </md-toolbar>
+        <div flex hljs language="js">
+    // create permissions and add check function verify all permissions
+    var permissions = ['viewEmail', 'viewGitHub', 'viewCalendar', 'viewLayouts', 'viewTodo', 'viewElements', 'viewAuthentication', 'viewCharts', 'viewMaps'];
+    PermissionStore.defineManyPermissions(permissions, function (permissionName) {
+        return UserService.hasPermission(permissionName);
+    });
+
+    // create roles for app
+    RoleStore.defineManyRoles({
+        'SUPERADMIN': ['viewEmail', 'viewGitHub', 'viewCalendar', 'viewLayouts', 'viewTodo', 'viewElements', 'viewAuthentication', 'viewCharts', 'viewMaps'],
+        'ADMIN': ['viewLayouts', 'viewTodo', 'viewElements', 'viewAuthentication', 'viewCharts', 'viewMaps'],
+        'USER': ['viewAuthentication', 'viewCharts', 'viewMaps'],
+        'ANONYMOUS': []
+    });
+        </div>
+    </div>
+
+    <p>First of all we create a list of permissions then tell permission store about them and assign a function to verify them.  We use a service called UserService to check if the current user has a permission.</p>
+
+    <p>Next we define the roles SUPERADMIN, ADMIN, USER, and ANONYMOUS.  These roles each have their own permissions except for ANONYMOUS which doesn't have any permissions set.</p>
+
+    <p>Thats all you need to do to create Roles and Permissions which you can now use to hide / show menu items and page elements.</p>
+
+    <p>For more in depth information see the <a href="https://github.com/Narzerus/angular-permission">Angular Permissions Module</a></p>
+</div>

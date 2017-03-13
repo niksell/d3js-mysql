@@ -1,0 +1,52 @@
+<md-dialog class="mobile-fullwidth-dialog" flex="60" flex-xs="100">
+    <md-toolbar class="toolbar-default" ng-style="{ 'background-color': vm.selectedColor.backgroundColor, color: vm.selectedColor.textColor }">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span translate>{{::vm.dialogData.title}}</span>
+                <span ng-show="vm.employee.id"> - {{vm.employee.id}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.cancelClick()" aria-label="cancel">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+
+    <md-dialog-content class="md-dialog-content">
+        <form class="event-dialog-form" name="eventForm">
+            <md-input-container class="md-block">
+                <label translate>Name</label>
+                <input ng-model="vm.role.name" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>Machine</label>
+                <input ng-model="vm.role.machine" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>Description</label>
+                <input rows="5" ng-model="vm.role.description" required>
+            </md-input-container>
+
+
+                <label translate>permissions</label>
+                <md-divider></md-divider>
+                <md-list>
+                  <md-list-item class="md-6-line" ng-repeat="pe in vm.event.permissions">
+                          <p>{{::pe.name}}</p>
+                          <md-checkbox ng-model="pe.enabled"  ng-true-value="true" ng-false-value="false"></md-checkbox>
+
+                  </md-list-item>
+                </md-list>
+
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button class="md-warn" ng-click="vm.deleteClick()" aria-label="{{'Delete' | triTranslate}}" ng-show="vm.edit" translate="Delete"></md-button>
+        <span flex></span>
+        <md-button ng-click="vm.cancelClick()" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button>
+        <md-button ng-click="vm.okClick()" class="md-primary" ng-disabled="eventForm.$invalid" aria-label="{{vm.dialogData.confirmButtonText | triTranslate}}" translate="{{::vm.dialogData.confirmButtonText}}"></md-button>
+    </md-dialog-actions>
+</md-dialog>

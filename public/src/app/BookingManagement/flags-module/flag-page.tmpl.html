@@ -1,0 +1,75 @@
+<md-content class="padded-content-page">
+
+        <div layout="row" layout-xs="column" layout-margin>
+
+            <tri-widget flex title="Flags" content-layout="column" content-layout-align="center">
+              <md-toolbar ng-hide="vm.selected.length || vm.filter.show" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <div flex></div>
+            <md-button class="md-icon-button" ng-click="vm.filter.show = true">
+                <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+            <form flex="" name="vm.filter.form">
+                <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+            </form>
+            <md-button class="md-icon-button" ng-click="vm.removeFilter()">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+        <div class="md-toolbar-tools" layout-align="start center">
+            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'flags' : 'flag'}} selected
+              <md-button ng-click="vm.deleteFlag()" class="md-icon-button" aria-label="Delete flag">
+                  <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+              </md-button>
+
+            </div>
+
+        </div>
+    </md-toolbar>
+
+                <md-table-container>
+                    <table md-table class="md-primary md-data-table" ng-model="vm.selected" md-row-select multiple md-progress="vm.promise">
+                        <thead md-head md-order="vm.query.order" md-on-reorder="vm.searchflags">
+                            <tr md-row>
+                                <th md-column md-numeric md-order-by="name" decend-first>Name</th>
+                                <th md-column md-order-by="firstname">Machine Name</th>
+
+
+                                <th md-column>Details</th>
+                                <th md-column>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-auto-select md-select="flag" ng-repeat="flag in flags | orderBy: vm.query.order | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+                                <td md-cell>{{::flag.name }}</td>
+                                <td md-cell>{{::flag.machine}}</td>
+
+
+                                <td md-cell>
+                                    <md-button ng-click="vm.flagDetail(flag, $event)" class="md-icon-button" aria-label="Open flag">
+                                        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                                    </md-button>
+                                </td>
+                                <td md-cell>
+
+                                    <md-button ng-click="vm.editFlag(flag, $event)" class="md-icon-button" aria-label="Edit flag">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon>
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.query.total}}" md-on-paginate="pageContro"md-page-select></md-table-pagination>
+            </tri-widget>
+        </div>
+
+</md-content>

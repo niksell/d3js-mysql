@@ -1,0 +1,79 @@
+<md-dialog class="mobile-fullwidth-dialog" flex="60" flex-xs="100">
+    <md-toolbar class="toolbar-default" ng-style="{ 'background-color': vm.selectedColor.backgroundColor, color: vm.selectedColor.textColor }">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span translate>{{::vm.dialogData.title}}</span>
+                <span ng-show="vm.event.title"> - {{vm.event.title}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.cancelClick()" aria-label="cancel">
+                <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+
+    <md-dialog-content class="md-dialog-content">
+        <form class="event-dialog-form" name="eventForm">
+          <div class="event-dialog-input-row" layout="row" layout-align="start center">
+              <p flex translate>Salutation</p>
+              <div layout="row" layout-align="end center">
+                  <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                  <md-select class="padding-right-10" placeholder="{{'Salutation' | triTranslate}}" ng-model="vm.event.salutation">
+                      <md-option ng-repeat="salute in salutation" ng-value="salute">{{salute}}</md-option>
+                  </md-select>
+
+              </div>
+          </div>
+            <md-input-container class="md-block">
+                <label translate>Firstname</label>
+                <input ng-model="vm.event.firstname" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>Lastname</label>
+                <input ng-model="vm.event.lastname" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>email</label>
+                <input ng-model="vm.event.email" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate>mobile</label>
+                <input ng-model="vm.event.mobile" required>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-checkbox class="md-warn" ng-model="vm.event.subscribe" aria-label="Warn Checkbox">
+                  Subscriber
+                </md-checkbox>
+            </md-input-container>
+            <div class="event-dialog-input-row" layout="row" layout-align="start center">
+                <p flex translate>Business</p>
+                <div layout="row" layout-align="end center">
+                    <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                    <md-select class="padding-right-10" placeholder="{{'Business' | triTranslate}}" ng-model="vm.event.business">
+                        <md-option ng-repeat="buss in businesses" ng-value="buss">{{buss.slug}}</md-option>
+                    </md-select>
+
+                </div>
+            </div>
+            <md-input-container class="md-block">
+                <md-checkbox class="md-warn" ng-model="vm.event.active" aria-label="Warn Checkbox">
+                  Active
+                </md-checkbox>
+            </md-input-container>
+            <md-input-container class="md-block" rows="5">
+                <label translate>Notes</label>
+                <input ng-model="vm.event.notes" required>
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button class="md-warn" ng-click="vm.deleteClick()" aria-label="{{'Delete' | triTranslate}}" ng-show="vm.edit" translate="Delete"></md-button>
+        <span flex></span>
+        <md-button ng-click="vm.cancelClick()" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button>
+        <md-button ng-click="vm.okClick()" class="md-primary" ng-disabled="eventForm.$invalid" aria-label="{{vm.dialogData.confirmButtonText | triTranslate}}" translate="{{::vm.dialogData.confirmButtonText}}"></md-button>
+    </md-dialog-actions>
+</md-dialog>

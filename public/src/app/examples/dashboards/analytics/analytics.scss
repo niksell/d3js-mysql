@@ -1,0 +1,15 @@
+.analytics-dashboard {
+  background: #F4F4F4;
+
+  md-icon {
+    color: inherit;
+  }
+
+  .map-widget .angular-google-map-container {
+  	height: 400px;
+  }
+
+  .no-padding-card md-card-content {
+    padding: 0px;
+  }
+}

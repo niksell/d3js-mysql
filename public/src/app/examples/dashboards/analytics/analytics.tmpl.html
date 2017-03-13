@@ -1,0 +1,36 @@
+<div class="md-content md-padding">
+    <div layout="row" layout-xs="column" layout-wrap>
+        <counter-widget flex flex-sm="50" title="Comments" count="vm.data.social.comments" icon="fa fa-comments" background="red-400" color="white"></counter-widget>
+        <counter-widget flex flex-sm="50" title="Tweets" count="vm.data.social.tweets" icon="fa fa-twitter"  background="blue-A100" color="white"></counter-widget>
+        <counter-widget flex flex-sm="50" title="Likes" count="vm.data.social.likes" icon="fa fa-facebook"  background="blue-900" color="white"></counter-widget>
+        <counter-widget flex flex-sm="50" title="Pageviews" count="vm.data.social.pageviews" icon="fa fa-eye"  background="green-500" color="white"></counter-widget>
+    </div>
+    <div layout="row">
+        <line-chart-widget flex start="vm.start" end="vm.end" time-spans="vm.timeSpans" on-time-change="vm.timeSpanChanged(span)" data="vm.data.sessionsLineChartData" options="vm.overviewLineChartOptions"></line-chart-widget>
+    </div>
+    <div layout="row" layout-xs="column">
+        <div flex flex-xs="100" layout="column">
+            <div flex layout="row">
+                <stat-chart-widget flex name="Sessions" statistic="{{vm.data.totals.sessions | number}}" data="vm.data.sessionsLineChartData" options="vm.statLineChartOptions"></stat-chart-widget>
+                <stat-chart-widget flex name="Users" statistic="{{vm.data.totals.users | number}}" data="vm.data.usersLineChartData" options="vm.statLineChartOptions"></stat-chart-widget>
+                <stat-chart-widget flex name="Pageviews" statistic="{{vm.data.totals.pageviews | number}}" data="vm.data.pageviewsLineChartData" options="vm.statLineChartOptions"></stat-chart-widget>
+            </div>
+            <div layout="row">
+                <stat-chart-widget flex name="Pages / Sessions" statistic="{{vm.data.totals.pagesessions | number}}" data="vm.data.pagesSessionsLineChartData" options="vm.statLineChartOptions"></stat-chart-widget>
+                <stat-chart-widget flex name="Avg. Session" statistic="{{vm.data.totals.avgsessions | secondsToDate | date:'HH:mm:ss'}}" data="vm.data.avgSessionLineChartData" options="vm.statTimeLineChartOptions"></stat-chart-widget>
+                <stat-chart-widget flex name="Bounce Rate" statistic="{{vm.data.totals.bounces.toFixed(2)}}%" data="vm.data.bounceLineChartData" options="vm.statPercentLineChartOptions"></stat-chart-widget>
+            </div>
+        </div>
+        <div flex="40" flex-xs="100" layout="column">
+            <pie-chart-widget data="vm.data.visitorPieChartData" options="vm.visitorPieChartOptions"></pie-chart-widget>
+        </div>
+    </div>
+    <div layout="row" layout-xs="column">
+        <div flex flex-xs="100" layout="column">
+            <tabs-widget languages="vm.data.languages" countries="vm.data.countries"></tabs-widget>
+        </div>
+        <div flex flex-xs="100" layout="column">
+            <map-widget></map-widget>
+        </div>
+    </div>
+</div>
