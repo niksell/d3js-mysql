@@ -100,7 +100,11 @@ for year in range(4,len(columns)):
 
 		dec = 1
 		decade = int(columns[year].split()[0])
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 103b7bbd8424fefe57252f7333458adb635b6204
 	halfDecades[columns[year].split()[0].strip()] = halfDecade
 	decades[columns[year].split()[0].strip()] = decade
 
