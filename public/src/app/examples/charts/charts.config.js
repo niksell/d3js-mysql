@@ -92,6 +92,42 @@
                     contentClass: 'layout-column'
                 }
             }
+        })
+        .state('triangular.charts-d3-scatter', {
+            url: '/charts/d3/scatter',
+            templateUrl: 'app/examples/charts/d3-scatter.tmpl.html',
+            data: {
+                permissions: {
+                    only: ['viewCharts']
+                },
+                layout: {
+                    contentClass: 'layout-column'
+                }
+            }
+        })
+        .state('triangular.charts-d3-bar', {
+            url: '/charts/d3/bar',
+            templateUrl: 'app/examples/charts/d3-bar.tmpl.html',
+            data: {
+                permissions: {
+                    only: ['viewCharts']
+                },
+                layout: {
+                    contentClass: 'layout-column'
+                }
+            }
+        })
+        .state('triangular.charts-d3-multiline', {
+            url: '/charts/d3/multiline',
+            templateUrl: 'app/examples/charts/d3-multiline.tmpl.html',
+            data: {
+                permissions: {
+                    only: ['viewCharts']
+                },
+                layout: {
+                    contentClass: 'layout-column'
+                }
+            }
         });
 
         triMenuProvider.addMenu({
@@ -134,6 +170,22 @@
                 },{
                     name: 'Ticker',
                     state: 'triangular.charts-chartjs-ticker',
+                    type: 'link'
+                }]
+            },{
+                name: 'D3 Charts',
+                type: 'dropdown',
+                children: [{
+                    name: 'Scatter',
+                    state: 'triangular.charts-d3-scatter',
+                    type: 'link'
+                },{
+                    name: 'OHCL Bar',
+                    state: 'triangular.charts-d3-bar',
+                    type: 'link'
+                },{
+                    name: 'Multiline',
+                    state: 'triangular.charts-d3-multiline',
                     type: 'link'
                 }]
             }]

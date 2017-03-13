@@ -6,32 +6,12 @@
         .factory('UserService', UserService);
 
     /* @ngInject */
-    function UserService($q, $http, RoleStore,Data,$rootScope) {
-      $rootScope.name;
-      $rootScope.email;
-      $rootScope.roles=[];
-      Data.getApiData(function (res) {
-        angular.forEach(res, function(child) {
-            $rootScope.name=child.lastname;
-            $rootScope.email=child.email;
-            $rootScope.roles.push(child.roles[0].machine);
-            //console.log($rootScope.name);
-            //console.log($rootScope.email);
-            //console.log($rootScope.roles);
-
-        });
-
-      }, function () {
-     $rootScope.error = 'Failed to fetch restricted API content.';
- });
-        //function getUser
-        //function getUsername
-        //fun getroles
+    function UserService($q, $http, RoleStore) {
         var currentUser = {
             displayName: 'Christos',
             username: 'christos',
             avatar: 'assets/images/avatars/avatar-5.png',
-            roles: ['administrator']
+            roles: ['SUPERADMIN']
         };
 
         var service = {
@@ -87,23 +67,6 @@
 
         function login(username) {
             // you would replace the code below with a call you your API
-            /*
-            Data.getApiData(function (response) {
-                console.log(3+username);
-                console.log(response);
-                var returnUser = getCurrentUser();
-                console.log(returnUser);
-                angular.forEach(response, function(user) {
-                    if(user.email === username) {
-                        returnUser = user;
-                        currentUser = user;
-                    }
-                });
-                console.log(returnUser);
-
-                return returnUser;
-            });
-            */
             // request all users
             return getUsers()
             .then(function successCallback(response) {

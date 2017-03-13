@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('definition', 'definitionController@getDefinitions');
-Route::get('yearsValues', 'yearController@getYears');
+Route::get('years', 'yearController@getYears');
 Route::get('countrys', 'countryController@getCountrys');
