@@ -68,3 +68,14 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 .uploader{
     clear:both;
 }
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}

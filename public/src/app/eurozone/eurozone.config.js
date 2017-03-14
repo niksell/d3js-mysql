@@ -10,13 +10,13 @@
 
         $stateProvider
 
-        .state('triangular.eurozone', {
-            url: '/eurozone',
+        .state('triangular.barChart', {
+            url: '/eurozone/barChart',
             views: {
                       '@triangular': {
-                              templateUrl: 'app/eurozone/eurozone-page.tmpl.html',
+                              templateUrl: 'app/eurozone/barChart/barChart.tmpl.html',
                               // set the controller to load for this page
-                              controller: 'eurozonePageController',
+                              controller: 'barChartPageController',
                               controllerAs: 'vm',
 
                             }
@@ -31,10 +31,16 @@
         triMenuProvider.addMenu({
             name: 'Charts',
             icon: 'zmdi zmdi-chart',
-            type: 'link',
-            priority: 5.1,
-            state: 'triangular.eurozone',
+            type: 'dropdown',
+            priority: 1.0,
 
+            children: [{
+                name: 'Bar Chart ',
+                state: 'triangular.barChart',
+                type: 'link',
+
+                priority: 0.0,
+            }]
         });
     }
 })();

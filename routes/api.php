@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('definition', 'definitionController@getDefinitions');
 Route::get('years', 'yearController@getYears');
 Route::get('countrys', 'countryController@getCountrys');
+Route::post('years', 'yearController@getValues');

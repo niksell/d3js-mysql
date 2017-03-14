@@ -10,6 +10,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 class yearController extends Controller
 {
+  public function getValues(Request $request)
+  {
+    try {
+        $data['status'] = 1;
+        $values = YearsValues::select('years','value')->where('source_id', $request->input('definitionId'))->where('country_id',$request->input('countryId'))->get();
+        $data['data'] = $values;
+    }
+    catch(\Illuminate\Database\QueryException $e)
+    {
+        $data['status'] = 0;
+        $data['message'] = 'Error: An error occurred. Please try again.';
+    }
+    return response()->json($data);
+    //return ($request->input('countryId'));
+  }
   public function getYears()
   {
       try {
