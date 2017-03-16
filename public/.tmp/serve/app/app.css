@@ -28889,6 +28889,127 @@ md-input-container ng-messages, md-input-container data-ng-messages {
 .tabs-tall md-pagination-wrapper, .tabs-tall md-tabs-canvas {
   height: 72px; }
 
+.email-dialog {
+  min-width: 800px;
+  max-width: 800px; }
+
+.email-dialog-ccs {
+  -webkit-transition: all .5s;
+  transition: all .5s; }
+
+.email-dialog-ccs.ng-hide {
+  display: block !important;
+  max-height: 0;
+  opacity: 0; }
+
+.email-subject {
+  margin-bottom: 0px; }
+
+.email-content.focussed > .ta-scroll-window.form-control {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+
+.email-content .ta-editor {
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+
+.email-dialog-editor-toolbar button {
+  font-size: 18px;
+  min-width: 4rem; }
+  .email-dialog-editor-toolbar button i {
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    opacity: 0.5; }
+  .email-dialog-editor-toolbar button.active i, .email-dialog-editor-toolbar button:hover i {
+    opacity: 1; }
+
+.email-single {
+  background: transparent !important; }
+  .email-single md-toolbar {
+    padding: 16px; }
+    .email-single md-toolbar .email-single-title > span {
+      display: block; }
+
+.inbox-list {
+  background: white; }
+
+.inbox-list__email.md-3-line.md-long-text {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.inbox-list__email h3 .md-caption {
+  float: right; }
+
+.inbox-list__email._md-button-wrap > .md-button:first-child ._md-list-item-inner {
+  width: auto; }
+
+.inbox-list__email--active {
+  background: rgba(0, 0, 0, 0.05); }
+  .inbox-list__email--active .md-avatar {
+    display: block;
+    -webkit-animation: swing 1s;
+            animation: swing 1s; }
+
+.inbox-list__email--unread h3 {
+  font-weight: 700 !important; }
+
+.inbox-no-email-selected {
+  text-align: center;
+  opacity: 0.5; }
+  .inbox-no-email-selected h2 {
+    font-weight: lighter; }
+
+.inbox-list__email--animated.ng-move,
+.inbox-list__email--animated.ng-enter,
+.inbox-list__email--animated.ng-leave {
+  -webkit-transition: all linear 0.8s;
+  transition: all linear 0.8s;
+  width: 100%;
+  position: relative; }
+
+.inbox-list__email--animated.ng-leave.ng-leave-active,
+.inbox-list__email--animated.ng-move,
+.inbox-list__email--animated.ng-enter {
+  opacity: 0;
+  max-height: 0; }
+
+.inbox-list__email--animated.ng-leave,
+.inbox-list__email--animated.ng-move.ng-move-active,
+.inbox-list__email--animated.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 500px; }
+
+#ui-admin-email.ng-enter {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+#ui-admin-email.ng-leave {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
 .extras-gallery-container {
   height: 100%; }
 
@@ -29021,127 +29142,6 @@ md-input-container ng-messages, md-input-container data-ng-messages {
 .tri-wizard-card md-card-content {
   padding: 0px; }
 
-.email-dialog {
-  min-width: 800px;
-  max-width: 800px; }
-
-.email-dialog-ccs {
-  -webkit-transition: all .5s;
-  transition: all .5s; }
-
-.email-dialog-ccs.ng-hide {
-  display: block !important;
-  max-height: 0;
-  opacity: 0; }
-
-.email-subject {
-  margin-bottom: 0px; }
-
-.email-content.focussed > .ta-scroll-window.form-control {
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.12); }
-
-.email-content .ta-editor {
-  border: 1px solid rgba(0, 0, 0, 0.12); }
-
-.email-dialog-editor-toolbar button {
-  font-size: 18px;
-  min-width: 4rem; }
-  .email-dialog-editor-toolbar button i {
-    -webkit-transition: all .2s;
-    transition: all .2s;
-    opacity: 0.5; }
-  .email-dialog-editor-toolbar button.active i, .email-dialog-editor-toolbar button:hover i {
-    opacity: 1; }
-
-.email-single {
-  background: transparent !important; }
-  .email-single md-toolbar {
-    padding: 16px; }
-    .email-single md-toolbar .email-single-title > span {
-      display: block; }
-
-.inbox-list {
-  background: white; }
-
-.inbox-list__email.md-3-line.md-long-text {
-  margin-top: 0px;
-  margin-bottom: 0px; }
-
-.inbox-list__email h3 .md-caption {
-  float: right; }
-
-.inbox-list__email._md-button-wrap > .md-button:first-child ._md-list-item-inner {
-  width: auto; }
-
-.inbox-list__email--active {
-  background: rgba(0, 0, 0, 0.05); }
-  .inbox-list__email--active .md-avatar {
-    display: block;
-    -webkit-animation: swing 1s;
-            animation: swing 1s; }
-
-.inbox-list__email--unread h3 {
-  font-weight: 700 !important; }
-
-.inbox-no-email-selected {
-  text-align: center;
-  opacity: 0.5; }
-  .inbox-no-email-selected h2 {
-    font-weight: lighter; }
-
-.inbox-list__email--animated.ng-move,
-.inbox-list__email--animated.ng-enter,
-.inbox-list__email--animated.ng-leave {
-  -webkit-transition: all linear 0.8s;
-  transition: all linear 0.8s;
-  width: 100%;
-  position: relative; }
-
-.inbox-list__email--animated.ng-leave.ng-leave-active,
-.inbox-list__email--animated.ng-move,
-.inbox-list__email--animated.ng-enter {
-  opacity: 0;
-  max-height: 0; }
-
-.inbox-list__email--animated.ng-leave,
-.inbox-list__email--animated.ng-move.ng-move-active,
-.inbox-list__email--animated.ng-enter.ng-enter-active {
-  opacity: 1;
-  max-height: 500px; }
-
-#ui-admin-email.ng-enter {
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-#ui-admin-email.ng-leave {
-  -webkit-animation-name: slideOutRight;
-  animation-name: slideOutRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
 .github-user-dropdown img {
   width: 40px;
   height: 40px;
@@ -29202,6 +29202,82 @@ md-input-container ng-messages, md-input-container data-ng-messages {
     padding: 0px; }
     .todo-container md-card {
       margin: 0px; } }
+
+.elements-button-examples md-card-content {
+  min-height: 100px; }
+
+.elements-buttons-raised-usage {
+  width: 400px; }
+  .elements-buttons-raised-usage .elements-raised-content {
+    padding: 16px; }
+  .elements-buttons-raised-usage .elements-raised-buttons {
+    padding: 16px; }
+    .elements-buttons-raised-usage .elements-raised-buttons .md-button {
+      margin-left: 5px; }
+
+.elements-buttons-fab-usage {
+  position: relative; }
+  .elements-buttons-fab-usage .md-fab {
+    position: absolute;
+    bottom: 26px;
+    right: 26px; }
+
+.elements-icons md-content {
+  min-width: 400px;
+  height: 500px; }
+  .elements-icons md-content .md-font {
+    font-size: 24px; }
+
+.elements-icon-size-1 {
+  width: 16px;
+  height: 16px; }
+  .elements-icon-size-1 span {
+    font-size: 16px; }
+
+.elements-icon-size-2 {
+  width: 24px;
+  height: 24px; }
+  .elements-icon-size-2 span {
+    font-size: 24px; }
+
+.elements-icon-size-3 {
+  width: 32px;
+  height: 32px; }
+  .elements-icon-size-3 span {
+    font-size: 32px; }
+
+.elements-icon-size-4 {
+  width: 48px;
+  height: 48px; }
+  .elements-icon-size-4 span {
+    font-size: 48px; }
+
+.elements-icons-preview .md-button md-icon {
+  font-size: 24px; }
+
+.elements-icons-preview .elements-icon-small {
+  font-size: 16px;
+  width: 16px;
+  height: 16px; }
+
+.elements-radio-avatar img {
+  width: 150px; }
+
+.example-tabs-content md-content {
+  background: none !important; }
+
+.elements-grids-example md-grid-tile {
+  background-size: 100%; }
+
+.elements-sidebar-example md-sidenav md-content {
+  background: none; }
+
+.elements-sidebar-example .md-button {
+  margin: 0px 20px; }
+
+.elements-whiteframe-example md-whiteframe {
+  min-width: 500px;
+  background-color: white; }
 
 .ui-color-grid md-grid-tile {
   cursor: pointer; }
@@ -29312,82 +29388,6 @@ md-input-container ng-messages, md-input-container data-ng-messages {
 
 .triangular-toolbar.ng-leave {
   display: none; }
-
-.elements-button-examples md-card-content {
-  min-height: 100px; }
-
-.elements-buttons-raised-usage {
-  width: 400px; }
-  .elements-buttons-raised-usage .elements-raised-content {
-    padding: 16px; }
-  .elements-buttons-raised-usage .elements-raised-buttons {
-    padding: 16px; }
-    .elements-buttons-raised-usage .elements-raised-buttons .md-button {
-      margin-left: 5px; }
-
-.elements-buttons-fab-usage {
-  position: relative; }
-  .elements-buttons-fab-usage .md-fab {
-    position: absolute;
-    bottom: 26px;
-    right: 26px; }
-
-.elements-icons md-content {
-  min-width: 400px;
-  height: 500px; }
-  .elements-icons md-content .md-font {
-    font-size: 24px; }
-
-.elements-icon-size-1 {
-  width: 16px;
-  height: 16px; }
-  .elements-icon-size-1 span {
-    font-size: 16px; }
-
-.elements-icon-size-2 {
-  width: 24px;
-  height: 24px; }
-  .elements-icon-size-2 span {
-    font-size: 24px; }
-
-.elements-icon-size-3 {
-  width: 32px;
-  height: 32px; }
-  .elements-icon-size-3 span {
-    font-size: 32px; }
-
-.elements-icon-size-4 {
-  width: 48px;
-  height: 48px; }
-  .elements-icon-size-4 span {
-    font-size: 48px; }
-
-.elements-icons-preview .md-button md-icon {
-  font-size: 24px; }
-
-.elements-icons-preview .elements-icon-small {
-  font-size: 16px;
-  width: 16px;
-  height: 16px; }
-
-.elements-radio-avatar img {
-  width: 150px; }
-
-.example-tabs-content md-content {
-  background: none !important; }
-
-.elements-grids-example md-grid-tile {
-  background-size: 100%; }
-
-.elements-sidebar-example md-sidenav md-content {
-  background: none; }
-
-.elements-sidebar-example .md-button {
-  margin: 0px 20px; }
-
-.elements-whiteframe-example md-whiteframe {
-  min-width: 500px;
-  background-color: white; }
 
 .login-frame md-card {
   max-width: 400px; }
