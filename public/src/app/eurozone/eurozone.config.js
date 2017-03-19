@@ -26,6 +26,22 @@
                               contentClass: 'layout-column'
                           }
                       }
+        }).state('triangular.viewBarChart', {
+            url: '/eurozone/BarChart',
+            views: {
+                      '@triangular': {
+                              templateUrl: 'app/eurozone/barChart/viewBarChart.tmpl.html',
+                              // set the controller to load for this page
+                              controller: 'viewBarChartPageController',
+                              controllerAs: 'vm',
+
+                            }
+                      },
+                      data: {
+                          layout: {
+                              contentClass: 'layout-column'
+                          }
+                      }
         });
 
         triMenuProvider.addMenu({

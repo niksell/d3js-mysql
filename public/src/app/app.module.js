@@ -24,7 +24,7 @@
 
         // set a constant for the API we are connecting to
         .constant('API_CONFIG', {
-            'BASE': 'http://eurozoneg.dev:8000'
+            'BASE': 'http://eurozoneg.dev'
         })
 
    .factory('Data', function ($http, API_CONFIG) {

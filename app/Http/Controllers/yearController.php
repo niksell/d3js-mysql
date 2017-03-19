@@ -14,7 +14,7 @@ class yearController extends Controller
   {
     try {
         $data['status'] = 1;
-        $values = YearsValues::select('years','value')->where('source_id', $request->input('definitionId'))->where('country_id',$request->input('countryId'))->get();
+        $values = YearsValues::select('years','value','5YRS','10YRS')->where('source_id', $request->input('definitionId'))->where('country_id',$request->input('countryId'))->get();
         $data['data'] = $values;
     }
     catch(\Illuminate\Database\QueryException $e)

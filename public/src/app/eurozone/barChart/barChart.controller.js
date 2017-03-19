@@ -40,9 +40,8 @@
       }
       $http.post(API_CONFIG.BASE + '/api/years', params)
           .success(function(response) {
-            console.log(response);
-
-
+            $rootScope.values=response.data;
+            $state.go('triangular.viewBarChart');
           }).error(function(response) {
 
           });
@@ -59,7 +58,6 @@
      Data.getDefinitions(function (res) {
 
 
-       console.log(res);
        $scope.Definitions=res.data;
 
      }, function () {
