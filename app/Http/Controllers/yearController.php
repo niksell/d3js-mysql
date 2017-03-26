@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\YearsValues;
-
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +25,77 @@ class yearController extends Controller
     return response()->json($data);
     //return ($request->input('countryId'));
   }
+
+  public function getAvgValues5YRS(Request $request)
+  {
+
+    try {
+        $data['status'] = 1;
+        for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
+          $values[$i] = YearsValues::select('5YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))
+          ->where('country_id',$request->input('countryId')[$i])->groupBy('5YRS')->get()->toArray();
+
+
+        }
+        $data['data'] = $values;
+
+    }
+    catch(\Illuminate\Database\QueryException $e)
+    {
+        $data['status'] = 0;
+        $data['message'] = 'Error: An error occurred. Please try again.';
+    }
+    return response()->json($data);
+    //return ($request->input('countryId'));
+  }
+
+  public function getAvgValues10YRS(Request $request)
+  {
+
+    try {
+        $data['status'] = 1;
+        for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
+          $values[$i] = YearsValues::select('10YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))
+          ->where('country_id',$request->input('countryId')[$i])->groupBy('10YRS')->get()->toArray();
+
+
+        }
+        $data['data'] = $values;
+
+    }
+    catch(\Illuminate\Database\QueryException $e)
+    {
+        $data['status'] = 0;
+        $data['message'] = 'Error: An error occurred. Please try again.';
+    }
+    return response()->json($data);
+    //return ($request->input('countryId'));
+  }
+
+  public function getSingleYears(Request $request)
+  {
+
+    try {
+        $data['status'] = 1;
+        for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
+          $values[$i] = YearsValues::select('years','value')->where('source_id', $request->input('definitionId'))
+          ->where('country_id',$request->input('countryId')[$i])->get()->toArray();
+
+
+        }
+        $data['data'] = $values;
+
+    }
+    catch(\Illuminate\Database\QueryException $e)
+    {
+        $data['status'] = 0;
+        $data['message'] = 'Error: An error occurred. Please try again.';
+    }
+    return response()->json($data);
+    //return ($request->input('countryId'));
+  }
+
+
   public function getYears()
   {
       try {

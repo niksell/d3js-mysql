@@ -18,7 +18,7 @@
                         <p flex translate>Choose a Country </p>
                         <div layout="row" layout-align="end center">
                             <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
-                            <md-select class="padding-right-10" placeholder="{{'Countrys' | triTranslate}}" ng-model="countryId">
+                            <md-select class="padding-right-10" placeholder="{{'Countrys' | triTranslate}}" ng-model="countryId" multiple ng-change="test()">
                                 <md-option ng-repeat="country in Countrys" ng-value="country.id">{{country.country}}</md-option>
                             </md-select>
 

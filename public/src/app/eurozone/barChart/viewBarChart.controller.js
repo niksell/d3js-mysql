@@ -9,11 +9,16 @@
     function viewBarChartPageController($scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
         $scope.t1;
-        $scope.choises = [
-        { id: 1, value: 'single years' },
-        { id: 2, value: '10 years' },
-        { id: 3, value: '5 years' }
-      ];
+        $scope.choises = [{
+            id: 1,
+            value: 'single years'
+        }, {
+            id: 2,
+            value: '10 years'
+        }, {
+            id: 3,
+            value: '5 years'
+        }];
         vm.options = {
             rowSelection: true,
             multiSelect: true,
@@ -25,66 +30,142 @@
             pageSelect: true
         };
         $scope.data1 = [];
-        $scope.test=function (choise) {
-          $scope.data1.length=0;
-          var sum =0;
-          var count=0;
-          var keep;
-          console.log(choise);
-          if (choise=='3') {
-            console.log("fgfdsfhfhe");
+        $scope.test = function(choise) {
+            $scope.data1 = [];
+            $scope.data = [];
+            var sum = 0;
+            var count = 0;
+            var keep;
+            console.log(choise);
+            if (choise == '3') {
+                var params = $rootScope.selectedData;
+                console.log("fgfdsfhfhe");
+                $http.post(API_CONFIG.BASE + '/api/avg5YRS', params)
+                    .success(function(response) {
 
-          angular.forEach($rootScope.values, function(val) {
+                        var p = 0;
+                        for (var i = 0; i < response.data.length; i++) {
+                            $scope.data1 = [];
+                            for (var j = 0; j < response.data[i].length; j++) {
+                                //console.log(response.data[i][j].country_id);
+                                //console.log(response.data[i][j]['5YRS']);
+                                $scope.data1.push({
+                                    key: p,
+                                    x: response.data[i][j]['5YRS'],
+                                    y: response.data[i][j].avg_value
 
-              if (count==5) {
-                var temp=sum/count;
-                $scope.data1.push({
-                    key: "1",
-                    x:keep,
-                    y:temp
+                                });
+                            }
+                            p = p + 1;
+                            $scope.data.push({
+                                key: i,
+                                values: $scope.data1
+                            });
 
-                });
-                sum=0;
-                count=0;
-              }
-              if(count==0){
-                keep=val['5YRS'];
-                console.log("sfdfdfdfdfdfdfdfdfdfd");
-                console.log(keep);
-                }
-              sum=sum+val.value;
-              count=count+1;
-              /*$scope.data1.push({
-                  key: "1",
-                  x:val.years,
-                  y:val.value
+                        }
+                    }).error(function(response) {
 
-              });*/
-          })
-          var temp=sum/count;
-          $scope.data1.push({
-              key: "1",
-              x:keep,
-              y:temp
+                    });
 
-          });
-          $scope.data = [{
-            key: '1',
-            values: $scope.data1
-          }];
-          console.log($scope.data);
+
+            } else if (choise == 2) {
+
+
+                var params = $rootScope.selectedData;
+
+                $http.post(API_CONFIG.BASE + '/api/avg10YRS', params)
+                    .success(function(response) {
+
+                        var p = 0;
+                        for (var i = 0; i < response.data.length; i++) {
+                            $scope.data1 = [];
+                            for (var j = 0; j < response.data[i].length; j++) {
+                                //console.log(response.data[i][j].country_id);
+                                //console.log(response.data[i][j]['5YRS']);
+                                $scope.data1.push({
+                                    key: p,
+                                    x: response.data[i][j]['10YRS'],
+                                    y: response.data[i][j].avg_value
+
+                                });
+                            }
+                            p = p + 1;
+                            $scope.data.push({
+                                key: i,
+                                values: $scope.data1
+                            });
+
+                        }
+                    }).error(function(response) {
+
+                    });
+
+            } else if (choise == 1) {
+
+
+                var params = $rootScope.selectedData;
+                console.log("fgfdsfhfhe");
+                $http.post(API_CONFIG.BASE + '/api/singleYears', params)
+                    .success(function(response) {
+                        console.log(response.data);
+                        var p = 0;
+                        for (var i = 0; i < response.data.length; i++) {
+                            $scope.data1 = [];
+                            for (var j = 0; j < response.data[i].length; j++) {
+                                //console.log(response.data[i][j].country_id);
+                                //console.log(response.data[i][j]['5YRS']);
+                                $scope.data1.push({
+                                    key: p,
+                                    x: response.data[i][j]['years'],
+                                    y: response.data[i][j].value
+
+                                });
+                            }
+                            p = p + 1;
+                            $scope.data.push({
+                                key: i,
+                                values: $scope.data1
+                            });
+
+                        }
+                    }).error(function(response) {
+
+                    });
+
+            }
         }
-        }
+
         function createSelectOptions() {
-            angular.forEach($rootScope.values, function(val) {
-                $scope.data1.push({
-                    key: "1",
-                    x:val.years,
-                    y:val.value
+          $scope.data1 = [];
+          $scope.data = [];
+            var params = $rootScope.selectedData;
+            console.log("fgfdsfhfhe");
+            $http.post(API_CONFIG.BASE + '/api/singleYears', params)
+                .success(function(response) {
+                    console.log(response.data);
+                    var p = 0;
+                    for (var i = 0; i < response.data.length; i++) {
+                        $scope.data1 = [];
+                        for (var j = 0; j < response.data[i].length; j++) {
+                            //console.log(response.data[i][j].country_id);
+                            //console.log(response.data[i][j]['5YRS']);
+                            $scope.data1.push({
+                                key: p,
+                                x: response.data[i][j]['years'],
+                                y: response.data[i][j].value
+
+                            });
+                        }
+                        p = p + 1;
+                        $scope.data.push({
+                            key: i,
+                            values: $scope.data1
+                        });
+
+                    }
+                }).error(function(response) {
 
                 });
-            })
-            //vm.BarData = $scope.data;
             vm.BarOptions = {
                 chart: {
                     type: 'multiBarChart',
@@ -104,12 +185,15 @@
                         axisLabel: 'years',
 
                         showMaxMin: false
+
                     },
 
                     yAxis: {
                         axisLabel: 'value',
-
-                        showMaxMin: false
+                        axisLabelDistance: -20,
+                        tickFormat: function(d) {
+                            return d3.format(',.1f')(d);
+                        }
                     },
 
                     zoom: {
@@ -127,23 +211,20 @@
 
         // init
         createSelectOptions();
-        $scope.data = [{
-          key: '1',
-          values: $scope.data1
-        }];
-        /* Random Data Generator (took from nvd3.org) */
-      /*  function generateData() {
+        //$scope.data = generateData();
+        //console.log($scope.data);
+
+        /* Random Data Generator (took from nvd3.org)
+        function generateData() {
+          return stream_layers(3,50+Math.random()*50,.1).map(function(data, i) {
+                          return {
+                              key: 'Stream' + i,
+                              values: data
+                          };
+                      });
 
 
-                return {
-                    key: '1',
-                    values: $scope.data1
-                };
-
-
-
-
-        }
+        }*/
 
         /* Inspired by Lee Byron's test data generator.
         function stream_layers(n, m, o) {

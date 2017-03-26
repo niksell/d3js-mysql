@@ -21,3 +21,6 @@ Route::get('definition', 'definitionController@getDefinitions');
 Route::get('years', 'yearController@getYears');
 Route::get('countrys', 'countryController@getCountrys');
 Route::post('years', 'yearController@getValues');
+Route::post('avg5YRS', 'yearController@getAvgValues5YRS');
+Route::post('avg10YRS', 'yearController@getAvgValues10YRS');
+Route::post('singleYears', 'yearController@getSingleYears');
