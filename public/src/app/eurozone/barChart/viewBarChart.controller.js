@@ -6,7 +6,7 @@
         .controller('viewBarChartPageController', viewBarChartPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
-    function viewBarChartPageController($scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
+    function viewBarChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
         $scope.t1;
         $scope.choises = [{
@@ -138,7 +138,8 @@
         function createSelectOptions() {
           $scope.data1 = [];
           $scope.data = [];
-            var params = $rootScope.selectedData;
+            var params = $localStorage.selectedData;
+            console.log($rootScope.selectedData);
             console.log("fgfdsfhfhe");
             $http.post(API_CONFIG.BASE + '/api/singleYears', params)
                 .success(function(response) {

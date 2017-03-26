@@ -6,7 +6,7 @@
         .controller('barChartPageController', barChartPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
-    function barChartPageController($scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
+    function barChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
 
         vm.act;
@@ -68,7 +68,10 @@
                 countryId: $scope.countryId,
                 definitionId: $scope.defin,
             }
+            var
             $rootScope.selectedData = params;
+
+            $localStorage.selectedData=params;
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {
                     $rootScope.values = response.data;

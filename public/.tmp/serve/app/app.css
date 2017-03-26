@@ -28889,6 +28889,82 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 .tabs-tall md-pagination-wrapper, .tabs-tall md-tabs-canvas {
   height: 72px; }
 
+.elements-button-examples md-card-content {
+  min-height: 100px; }
+
+.elements-buttons-raised-usage {
+  width: 400px; }
+  .elements-buttons-raised-usage .elements-raised-content {
+    padding: 16px; }
+  .elements-buttons-raised-usage .elements-raised-buttons {
+    padding: 16px; }
+    .elements-buttons-raised-usage .elements-raised-buttons .md-button {
+      margin-left: 5px; }
+
+.elements-buttons-fab-usage {
+  position: relative; }
+  .elements-buttons-fab-usage .md-fab {
+    position: absolute;
+    bottom: 26px;
+    right: 26px; }
+
+.elements-icons md-content {
+  min-width: 400px;
+  height: 500px; }
+  .elements-icons md-content .md-font {
+    font-size: 24px; }
+
+.elements-icon-size-1 {
+  width: 16px;
+  height: 16px; }
+  .elements-icon-size-1 span {
+    font-size: 16px; }
+
+.elements-icon-size-2 {
+  width: 24px;
+  height: 24px; }
+  .elements-icon-size-2 span {
+    font-size: 24px; }
+
+.elements-icon-size-3 {
+  width: 32px;
+  height: 32px; }
+  .elements-icon-size-3 span {
+    font-size: 32px; }
+
+.elements-icon-size-4 {
+  width: 48px;
+  height: 48px; }
+  .elements-icon-size-4 span {
+    font-size: 48px; }
+
+.elements-icons-preview .md-button md-icon {
+  font-size: 24px; }
+
+.elements-icons-preview .elements-icon-small {
+  font-size: 16px;
+  width: 16px;
+  height: 16px; }
+
+.elements-radio-avatar img {
+  width: 150px; }
+
+.example-tabs-content md-content {
+  background: none !important; }
+
+.elements-grids-example md-grid-tile {
+  background-size: 100%; }
+
+.elements-sidebar-example md-sidenav md-content {
+  background: none; }
+
+.elements-sidebar-example .md-button {
+  margin: 0px 20px; }
+
+.elements-whiteframe-example md-whiteframe {
+  min-width: 500px;
+  background-color: white; }
+
 .email-dialog {
   min-width: 800px;
   max-width: 800px; }
@@ -29009,82 +29085,6 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
   animation-fill-mode: both;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
-
-.elements-button-examples md-card-content {
-  min-height: 100px; }
-
-.elements-buttons-raised-usage {
-  width: 400px; }
-  .elements-buttons-raised-usage .elements-raised-content {
-    padding: 16px; }
-  .elements-buttons-raised-usage .elements-raised-buttons {
-    padding: 16px; }
-    .elements-buttons-raised-usage .elements-raised-buttons .md-button {
-      margin-left: 5px; }
-
-.elements-buttons-fab-usage {
-  position: relative; }
-  .elements-buttons-fab-usage .md-fab {
-    position: absolute;
-    bottom: 26px;
-    right: 26px; }
-
-.elements-icons md-content {
-  min-width: 400px;
-  height: 500px; }
-  .elements-icons md-content .md-font {
-    font-size: 24px; }
-
-.elements-icon-size-1 {
-  width: 16px;
-  height: 16px; }
-  .elements-icon-size-1 span {
-    font-size: 16px; }
-
-.elements-icon-size-2 {
-  width: 24px;
-  height: 24px; }
-  .elements-icon-size-2 span {
-    font-size: 24px; }
-
-.elements-icon-size-3 {
-  width: 32px;
-  height: 32px; }
-  .elements-icon-size-3 span {
-    font-size: 32px; }
-
-.elements-icon-size-4 {
-  width: 48px;
-  height: 48px; }
-  .elements-icon-size-4 span {
-    font-size: 48px; }
-
-.elements-icons-preview .md-button md-icon {
-  font-size: 24px; }
-
-.elements-icons-preview .elements-icon-small {
-  font-size: 16px;
-  width: 16px;
-  height: 16px; }
-
-.elements-radio-avatar img {
-  width: 150px; }
-
-.example-tabs-content md-content {
-  background: none !important; }
-
-.elements-grids-example md-grid-tile {
-  background-size: 100%; }
-
-.elements-sidebar-example md-sidenav md-content {
-  background: none; }
-
-.elements-sidebar-example .md-button {
-  margin: 0px 20px; }
-
-.elements-whiteframe-example md-whiteframe {
-  min-width: 500px;
-  background-color: white; }
 
 .extras-gallery-container {
   height: 100%; }

@@ -26,7 +26,7 @@
         .constant('API_CONFIG', {
             'BASE': 'http://eurozoneg.dev'
         })
-
+  
    .factory('Data', function ($http, API_CONFIG) {
 
        return {
