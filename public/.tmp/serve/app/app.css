@@ -3379,11 +3379,11 @@ md-progress-linear {
     md-progress-linear .md-container.md-mode-determinate .md-bar1 {
       display: none; }
     md-progress-linear .md-container.md-mode-indeterminate .md-bar1 {
-      -webkit-animation: md-progress-linear-indeterminate-scale-1 4s infinite, md-progress-linear-indeterminate-1 4s infinite;
-              animation: md-progress-linear-indeterminate-scale-1 4s infinite, md-progress-linear-indeterminate-1 4s infinite; }
+      -webkit-animation: md-progress-linear-indeterminate-scale-1 4s infinite, md-progress-linear-indeterminate-1 4s infinite;
+              animation: md-progress-linear-indeterminate-scale-1 4s infinite, md-progress-linear-indeterminate-1 4s infinite; }
     md-progress-linear .md-container.md-mode-indeterminate .md-bar2 {
-      -webkit-animation: md-progress-linear-indeterminate-scale-2 4s infinite, md-progress-linear-indeterminate-2 4s infinite;
-              animation: md-progress-linear-indeterminate-scale-2 4s infinite, md-progress-linear-indeterminate-2 4s infinite; }
+      -webkit-animation: md-progress-linear-indeterminate-scale-2 4s infinite, md-progress-linear-indeterminate-2 4s infinite;
+              animation: md-progress-linear-indeterminate-scale-2 4s infinite, md-progress-linear-indeterminate-2 4s infinite; }
     md-progress-linear .md-container.ng-hide ._md-progress-linear-disabled md-progress-linear .md-container {
       -webkit-animation: none;
               animation: none; }
@@ -24075,8 +24075,8 @@ button, select, html, textarea, input {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
-    transform: skewX(0.39063deg) skewY(0.39063deg); }
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+    transform: skewX(0.39062deg) skewY(0.39062deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); }
@@ -24104,8 +24104,8 @@ button, select, html, textarea, input {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
-    transform: skewX(0.39063deg) skewY(0.39063deg); }
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+    transform: skewX(0.39062deg) skewY(0.39062deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); }
@@ -28646,6 +28646,64 @@ chart-legend ul {
       min-width: 260px;
       max-width: 260px; }
 
+.seed-list {
+  list-style: lower-greek; }
+
+table.md-table td {
+  vertical-align: middle; }
+  table.md-table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-top: 4px; }
+
+table.md-table thead tr {
+  height: 0; }
+
+.md-table-toolbar input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.87); }
+  .md-table-toolbar input:focus {
+    outline: none; }
+
+.event-dialog-form md-list-item .md-list-item-inner {
+  padding: 2px; }
+
+.event-dialog-form p {
+  color: rgba(0, 0, 0, 0.54); }
+
+.event-dialog-input-row {
+  padding: 2px; }
+
+.event-dialog-form-color-option .md-text {
+  text-transform: capitalize; }
+
+md-select[md-container-class="calendar-color-select"] md-select-value span {
+  text-transform: capitalize; }
+
+.calendar-color-select md-option {
+  text-transform: capitalize; }
+
+.thumb {
+  width: 200px;
+  margin: 10px;
+  float: left; }
+
+.uploader {
+  clear: both; }
+
+.bar {
+  fill: steelblue; }
+
+.bar:hover {
+  fill: brown; }
+
+.axis--x path {
+  display: none; }
+
 /* view change animation */
 .triangular-content.ng-enter, .triangular-content.ng-leave {
   position: absolute;
@@ -28673,6 +28731,180 @@ chart-legend ul {
 
 .triangular-content.ng-leave {
   opacity: 0; }
+
+.seed-list {
+  list-style: lower-greek; }
+
+table.md-table td {
+  vertical-align: middle; }
+  table.md-table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-top: 4px; }
+
+table.md-table thead tr {
+  height: 0; }
+
+.md-table-toolbar input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.87); }
+  .md-table-toolbar input:focus {
+    outline: none; }
+
+.event-dialog-form md-list-item .md-list-item-inner {
+  padding: 2px; }
+
+.event-dialog-form p {
+  color: rgba(0, 0, 0, 0.54); }
+
+.event-dialog-input-row {
+  padding: 2px; }
+
+.event-dialog-form-color-option .md-text {
+  text-transform: capitalize; }
+
+md-select[md-container-class="calendar-color-select"] md-select-value span {
+  text-transform: capitalize; }
+
+.calendar-color-select md-option {
+  text-transform: capitalize; }
+
+.thumb {
+  width: 200px;
+  margin: 10px;
+  float: left; }
+
+.uploader {
+  clear: both; }
+
+.bar {
+  fill: steelblue; }
+
+.bar:hover {
+  fill: brown; }
+
+.axis--x path {
+  display: none; }
+
+.seed-list {
+  list-style: lower-greek; }
+
+table.md-table td {
+  vertical-align: middle; }
+  table.md-table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-top: 4px; }
+
+table.md-table thead tr {
+  height: 0; }
+
+.md-table-toolbar input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.87); }
+  .md-table-toolbar input:focus {
+    outline: none; }
+
+.event-dialog-form md-list-item .md-list-item-inner {
+  padding: 2px; }
+
+.event-dialog-form p {
+  color: rgba(0, 0, 0, 0.54); }
+
+.event-dialog-input-row {
+  padding: 2px; }
+
+.event-dialog-form-color-option .md-text {
+  text-transform: capitalize; }
+
+md-select[md-container-class="calendar-color-select"] md-select-value span {
+  text-transform: capitalize; }
+
+.calendar-color-select md-option {
+  text-transform: capitalize; }
+
+.thumb {
+  width: 200px;
+  margin: 10px;
+  float: left; }
+
+.uploader {
+  clear: both; }
+
+.bar {
+  fill: steelblue; }
+
+.bar:hover {
+  fill: brown; }
+
+.axis--x path {
+  display: none; }
+
+.seed-list {
+  list-style: lower-greek; }
+
+table.md-table td {
+  vertical-align: middle; }
+  table.md-table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-top: 4px; }
+
+table.md-table thead tr {
+  height: 0; }
+
+.md-table-toolbar input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.87); }
+  .md-table-toolbar input:focus {
+    outline: none; }
+
+.event-dialog-form md-list-item .md-list-item-inner {
+  padding: 2px; }
+
+.event-dialog-form p {
+  color: rgba(0, 0, 0, 0.54); }
+
+.event-dialog-input-row {
+  padding: 2px; }
+
+.event-dialog-form-color-option .md-text {
+  text-transform: capitalize; }
+
+md-select[md-container-class="calendar-color-select"] md-select-value span {
+  text-transform: capitalize; }
+
+.calendar-color-select md-option {
+  text-transform: capitalize; }
+
+.thumb {
+  width: 200px;
+  margin: 10px;
+  float: left; }
+
+.uploader {
+  clear: both; }
+
+.bar {
+  fill: steelblue; }
+
+.bar:hover {
+  fill: brown; }
+
+.axis--x path {
+  display: none; }
 
 .seed-list {
   list-style: lower-greek; }
@@ -28768,6 +29000,12 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 md-input-container ng-messages, md-input-container data-ng-messages {
   display: block; }
 
+.google-example-chart {
+  padding: 24px; }
+
+.chartjs-example-chart {
+  padding: 24px; }
+
 .calendar-page {
   padding: 0px 120px; }
   .calendar-page .triangular-calendar:focus, .calendar-page .fc-view-container:focus {
@@ -28860,12 +29098,6 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 
 .calendar-color-select md-option {
   text-transform: capitalize; }
-
-.google-example-chart {
-  padding: 24px; }
-
-.chartjs-example-chart {
-  padding: 24px; }
 
 .dashboard-container .layout-margin {
   margin: 0px; }
@@ -28964,6 +29196,16 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 .elements-whiteframe-example md-whiteframe {
   min-width: 500px;
   background-color: white; }
+
+.md-select-form {
+  display: inline-block;
+  margin-top: 2px;
+  width: 100%; }
+  .md-select-form span {
+    width: 100%; }
+
+.tri-wizard-card md-card-content {
+  padding: 0px; }
 
 .email-dialog {
   min-width: 800px;
@@ -29085,6 +29327,15 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
   animation-fill-mode: both;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
+
+.github-user-dropdown img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: content-box; }
+
+.github-user-dropdown span {
+  margin-left: 16px; }
 
 .extras-gallery-container {
   height: 100%; }
@@ -29208,25 +29459,6 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
   .os-windows .error-container {
     max-height: 280px; }
 
-.md-select-form {
-  display: inline-block;
-  margin-top: 2px;
-  width: 100%; }
-  .md-select-form span {
-    width: 100%; }
-
-.tri-wizard-card md-card-content {
-  padding: 0px; }
-
-.github-user-dropdown img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-sizing: content-box; }
-
-.github-user-dropdown span {
-  margin-left: 16px; }
-
 .maps-example .angular-google-map-container {
   height: 550px; }
 
@@ -29240,44 +29472,6 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
     bottom: 0px;
     right: 0px;
     left: 0px; }
-
-.todo-container .slide.ng-enter {
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-.todo-container .slide.ng-leave {
-  -webkit-animation-name: slideOutRight;
-  animation-name: slideOutRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-@media (max-width: 600px) {
-  .todo-container {
-    padding: 0px; }
-    .todo-container md-card {
-      margin: 0px; } }
 
 .ui-color-grid md-grid-tile {
   cursor: pointer; }
@@ -29359,6 +29553,44 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
   width: 40px;
   border-radius: 50%;
   z-index: 5; }
+
+.todo-container .slide.ng-enter {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.todo-container .slide.ng-leave {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+@media (max-width: 600px) {
+  .todo-container {
+    padding: 0px; }
+    .todo-container md-card {
+      margin: 0px; } }
 
 .triangular-loader {
   background: #fff; }

@@ -77,13 +77,23 @@ class yearController extends Controller
 
     try {
         $data['status'] = 1;
-        for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
-          $values[$i] = YearsValues::select('years','value')->where('source_id', $request->input('definitionId'))
-          ->where('country_id',$request->input('countryId')[$i])->get()->toArray();
+        if(sizeof($request->input('countryId'))>1){
+          for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
+            $values[$i] = YearsValues::select('years','value')->where('source_id', $request->input('definitionId'))
+            ->where('country_id',$request->input('countryId')[$i])->get()->toArray();
 
 
+          }
+          $data['data'] = $values;
+        }elseif (sizeof($request->input('definitionId'))>1) {
+          for ($i=0; $i <sizeof($request->input('definitionId')) ; $i++) {
+            $values[$i] = YearsValues::select('years','value')->where('source_id', $request->input('definitionId')[$i])
+            ->where('country_id',$request->input('countryId'))->get()->toArray();
+
+
+          }
+          $data['data'] = $values;
         }
-        $data['data'] = $values;
 
     }
     catch(\Illuminate\Database\QueryException $e)

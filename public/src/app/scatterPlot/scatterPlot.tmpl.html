@@ -1,0 +1,47 @@
+<md-content class="padded-content-page">
+    <div layout="row" class="business" layout-wrap>
+        <div flex="100" flex-gt-md="100">
+
+            <md-content class="md-padding">
+                <form>
+                    <div layout="row">
+                      <div class="event-dialog-input-row" layout="row" layout-align="start center">
+                          <p flex translate>first code </p>
+                          <div layout="row" layout-align="end center">
+                              <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                              <md-select class="padding-right-10" placeholder="{{'Definitions' | triTranslate}}" ng-model="defin1">
+                                  <md-option ng-repeat="definition in Definitions" ng-value="definition.id">{{definition.Indicator_name}}</md-option>
+                              </md-select>
+
+                          </div>
+                      </div>
+                    <div class="event-dialog-input-row" layout="row" layout-align="start center">
+                        <p flex translate>second code </p>
+                        <div layout="row" layout-align="end center">
+                            <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                            <md-select class="padding-right-10" placeholder="{{'Definitions' | triTranslate}}" ng-model="defin2">
+                                <md-option ng-repeat="definition in Definitions" ng-value="definition.id">{{definition.Indicator_name}}</md-option>
+                            </md-select>
+
+                        </div>
+                    </div>
+                    <div class="event-dialog-input-row" layout="row" layout-align="start center">
+                        <p flex translate>Country </p>
+                        <div layout="row" layout-align="end center">
+                            <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
+                            <md-select class="padding-right-10" placeholder="{{'Countrys' | triTranslate}}" ng-model="countryId" >
+                                <md-option ng-repeat="country in Countrys" ng-value="country.id">{{country.country}}</md-option>
+                            </md-select>
+
+                        </div>
+                    </div>
+                  </div>
+                    <md-button class="md-raised md-primary margin-left-0" ng-click="update1()" >Update</md-button>
+                </form>
+            </md-content>
+
+        </div>
+
+    </div>
+
+</md-content>

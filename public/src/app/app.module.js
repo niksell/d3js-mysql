@@ -18,15 +18,15 @@
             // https://github.com/Narzerus/angular-permission see here for why
             // uncomment above to activate the example seed module
             //'seed-module',
-            'eurozone',
+            'eurozone','barChart','lineChart','scatterPlot',
             //'app.permission'//,'app.examples'
         ])
 
         // set a constant for the API we are connecting to
         .constant('API_CONFIG', {
-            'BASE': 'http://eurozoneg.dev'
+            'BASE': 'http://eurozoneg.dev:8000'
         })
-  
+
    .factory('Data', function ($http, API_CONFIG) {
 
        return {

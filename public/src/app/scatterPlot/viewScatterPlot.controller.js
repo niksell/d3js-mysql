@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('barChart')
-        .controller('viewBarChartPageController', viewBarChartPageController);
+        .module('scatterPlot')
+        .controller('viewScatterPlotPageController', viewScatterPlotPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
-    function viewBarChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
+    function viewScatterPlotPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
         $scope.t1;
         $scope.choises = [{
@@ -36,13 +36,11 @@
             var sum = 0;
             var count = 0;
             var keep;
-            console.log(choise);
             if (choise == '3') {
                 var params = $rootScope.selectedData;
-                console.log("fgfdsfhfhe");
                 $http.post(API_CONFIG.BASE + '/api/avg5YRS', params)
                     .success(function(response) {
-
+                      console.log(response);
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
@@ -51,7 +49,7 @@
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
                                     key: p,
-                                    x: response.data[i][j]['5YRS'],
+                                    x: response.data[i][j]['5YRS'].split('-')[0],
                                     y: response.data[i][j].avg_value
 
                                 });
@@ -61,7 +59,6 @@
                                 key: i,
                                 values: $scope.data1
                             });
-
 
                         }
                     }).error(function(response) {
@@ -105,10 +102,8 @@
 
 
                 var params = $rootScope.selectedData;
-                console.log("fgfdsfhfhe");
                 $http.post(API_CONFIG.BASE + '/api/singleYears', params)
                     .success(function(response) {
-                        console.log(response.data);
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
@@ -140,79 +135,104 @@
           $scope.data1 = [];
           $scope.data = [];
             var params = $localStorage.selectedData;
-            console.log($rootScope.selectedData);
-            console.log("fgfdsfhfhe");
+
             $http.post(API_CONFIG.BASE + '/api/singleYears', params)
                 .success(function(response) {
-                    console.log(response.data);
+                    console.log(response);
                     var p = 0;
-                    for (var i = 0; i < response.data.length; i++) {
+                    //for (var i = 0; i < response.data.length-1; i++) {
                         $scope.data1 = [];
-                        for (var j = 0; j < response.data[i].length; j++) {
+                        for (var j = 0; j < response.data[0].length; j++) {
                             //console.log(response.data[i][j].country_id);
                             //console.log(response.data[i][j]['5YRS']);
+                            var X=response.data[0][j].value;
+                            var Y=response.data[1][j].value;
+                            console.log(X);
+                            console.log(Y);
                             $scope.data1.push({
-                                key: p,
-                                x: response.data[i][j]['years'],
-                                y: response.data[i][j].value
+                                x: X,
+                                y: Y,
+                                shape:'circle',
+                                size:Math.random()
 
                             });
                         }
                         p = p + 1;
                         $scope.data.push({
-                            key: i,
+                            key: "group",
                             values: $scope.data1
                         });
 
-                    }
+                    //}
                 }).error(function(response) {
 
                 });
-            vm.BarOptions = {
+                console.log($scope.data);
+            $scope.ScatterOptions = {
                 chart: {
-                    type: 'multiBarChart',
+                    type: 'scatterChart',
                     height: 450,
-                    margin: {
-                        top: 20,
-                        right: 20,
-                        bottom: 40,
-                        left: 60
+                    color: d3.scale.category10().range(),
+                    scatter: {
+                        onlyCircles: false
                     },
-                    clipEdge: true,
-                    //staggerLabels: true,
-                    duration: 500,
-                    stacked: true,
-
+                    showDistX: true,
+                    showDistY: true,
+                  //tooltipContent: function(d) {
+                  //    return d.series && '<h3>' + d.series[0].key + '</h3>';
+                  //},
+                    duration: 350,
                     xAxis: {
-                        axisLabel: 'years',
-
-                        showMaxMin: false
+                        axisLabel: 'X Axis',
 
                     },
-
                     yAxis: {
-                        axisLabel: 'value',
-                        axisLabelDistance: -20,
-                        tickFormat: function(d) {
-                            return d3.format(',.1f')(d);
-                        }
-                    },
+                        axisLabel: 'Y Axis',
 
+                        axisLabelDistance: -5
+                    },
                     zoom: {
-                        enabled: false,
+                        //NOTE: All attributes below are optional
+                        enabled: true,
                         scaleExtent: [1, 10],
                         useFixedDomain: false,
                         useNiceScale: false,
                         horizontalOff: false,
-                        verticalOff: true,
+                        verticalOff: false,
                         unzoomEventType: 'dblclick.zoom'
                     }
                 }
             };
+
         }
 
         // init
         createSelectOptions();
+        $scope.data = generateData(2,40);
+        console.log($scope.data );
+       /* Random Data Generator (took from nvd3.org)*/
+       function generateData(groups, points) {
+           var data = [],
+               shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square'],
+               random = d3.random.normal();
+
+           for (var i = 0; i < groups; i++) {
+               data.push({
+                   key: 'Group ' + i,
+                   values: []
+               });
+
+               for (var j = 0; j < points; j++) {
+                   data[i].values.push({
+                       x: random()
+                       , y: random()
+                       , size: Math.random()
+                       , shape: shapes[j % 6]
+                   });
+               }
+           }
+           return data;
+       }
 
     }
 })();

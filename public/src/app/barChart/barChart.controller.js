@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('barChart')
+        .module('eurozone')
         .controller('barChartPageController', barChartPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
@@ -69,7 +69,7 @@
                 definitionId: $scope.defin,
             }
 
-
+            
             $rootScope.selectedData = params;
 
             $localStorage.selectedData=params;

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('barChart')
+        .module('eurozone')
         .controller('viewBarChartPageController', viewBarChartPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */

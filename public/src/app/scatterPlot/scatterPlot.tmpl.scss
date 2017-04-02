@@ -1,0 +1,81 @@
+.seed-list {
+  list-style: lower-greek;
+}
+// advanced tables
+
+table.md-table {
+  td {
+    vertical-align: middle;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-sizing: content-box;
+        margin-top: 4px;
+      }
+  }
+  thead {
+    tr {
+      height: 0;
+    }
+  }
+}
+
+.md-table-toolbar {
+  input {
+    width: 100%;
+    margin: 0;
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+    &:focus {
+        outline: none;
+    }
+  }
+}
+.event-dialog-form {
+  md-list-item .md-list-item-inner {
+    padding: 2px;
+  }
+
+  p {
+    color: rgba(0,0,0,0.54);
+  }
+}
+
+.event-dialog-input-row {
+  padding: 2px;
+}
+
+.event-dialog-form-color-option .md-text {
+  text-transform: capitalize;
+}
+
+md-select[md-container-class="calendar-color-select"] md-select-value span {
+  text-transform: capitalize;
+}
+
+.calendar-color-select {
+  md-option {
+    text-transform: capitalize;
+  }
+}
+.thumb{
+    width:200px;
+    margin:10px;
+    float:left;
+}
+
+.uploader{
+    clear:both;
+}
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}

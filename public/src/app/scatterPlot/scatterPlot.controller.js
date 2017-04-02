@@ -2,16 +2,18 @@
     'use strict';
 
     angular
-        .module('barChart')
-        .controller('barChartPageController', barChartPageController);
+        .module('scatterPlot')
+        .controller('scatterPlotPageController', scatterPlotPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
-    function barChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
+    function scatterPlotPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
 
         vm.act;
         vm.event = {};
-        $scope.defin;
+        $scope.defin1;
+        $scope.defin2;
+
         $scope.countryId;
         vm.options = {
             rowSelection: true,
@@ -27,42 +29,14 @@
         $scope.Definitions;
 
         ////////////**************************************///////////////////////////////////
-        vm.lat;
-        vm.lon;
 
         vm.createSelectOptions = createSelectOptions;
-        $scope.test = function() {
-            if ($scope.countryId.length > 3) {
-                swal("You can select up two 3 !");
 
-                var temp = [];
-                var i=0;
-                var temp1=0;
-                while (temp1<3) {
-                  if($scope.countryId[i]!=null){
-                    temp.push($scope.countryId[i]);
-                    temp1=temp1+1;
-
-                  }
-                  i=i+1;
-                }
-                /*for (var i = 0; i < $scope.countryId.length; i++) {
-
-                    temp.push($scope.countryId[i]);
-                }*/
-
-
-                $scope.countryId.length = 0;
-                for (var i = 0; i < 3; i++) {
-
-
-                    $scope.countryId.push(temp[i]);
-                }
-            }
-        }
         $scope.update1 = function() {
             console.log("mphka");
-            console.log($scope.countryId);
+            $scope.defin=[];
+            $scope.defin.push($scope.defin1);
+            $scope.defin.push($scope.defin2);
 
             var params = {
                 countryId: $scope.countryId,
@@ -71,12 +45,12 @@
 
 
             $rootScope.selectedData = params;
-
+            console.log(params);
             $localStorage.selectedData=params;
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {
                     $rootScope.values = response.data;
-                    $state.go('triangular.viewBarChart');
+                    $state.go('triangular.viewscatterPlot');
                 }).error(function(response) {
 
                 });

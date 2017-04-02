@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('barChart')
-        .controller('barChartPageController', barChartPageController);
+        .module('eurozone')
+        .controller('lineChartPageController', lineChartPageController);
     ///////ELEMENTS TABLE
     /* @ngInject */
-    function barChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
+    function lineChartPageController($localStorage,$scope, $state, $q, $timeout, $mdToast, $filter, $mdDialog, $http, $rootScope, Data, API_CONFIG, $log) {
         var vm = this;
 
         vm.act;
@@ -76,7 +76,7 @@
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {
                     $rootScope.values = response.data;
-                    $state.go('triangular.viewBarChart');
+                    $state.go('triangular.viewLineChart');
                 }).error(function(response) {
 
                 });
