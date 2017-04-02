@@ -159,7 +159,7 @@
                         }
                         p = p + 1;
                         $scope.data.push({
-                            key: "group",
+                            key: "Group"+0,
                             values: $scope.data1
                         });
 
@@ -190,7 +190,7 @@
                         axisLabel: 'Y Axis',
 
                         axisLabelDistance: -5
-                    },
+                    }/*,
                     zoom: {
                         //NOTE: All attributes below are optional
                         enabled: true,
@@ -200,7 +200,7 @@
                         horizontalOff: false,
                         verticalOff: false,
                         unzoomEventType: 'dblclick.zoom'
-                    }
+                    }*/
                 }
             };
 
@@ -208,7 +208,7 @@
 
         // init
         createSelectOptions();
-        $scope.data = generateData(2,40);
+      //  $scope.data = generateData(2,40);
         console.log($scope.data );
        /* Random Data Generator (took from nvd3.org)*/
        function generateData(groups, points) {
