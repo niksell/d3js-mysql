@@ -7,7 +7,9 @@
                   <p flex translate>output </p>
                   <div layout="row" layout-align="end center">
                       <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
-
+                      <md-select class="padding-right-10" placeholder="{{'Show options' | triTranslate}}" ng-model="test1" ng-change="test(test1)">
+                          <md-option ng-repeat="choise in choises"  ng-value="choise.id">{{choise.value}}</md-option>
+                      </md-select>
 
                   </div>
               </div>

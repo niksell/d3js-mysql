@@ -28848,121 +28848,70 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 .axis--x path {
   display: none; }
 
-.seed-list {
-  list-style: lower-greek; }
+.triangular-loader {
+  background: #fff; }
 
-table.md-table td {
-  vertical-align: middle; }
-  table.md-table td img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-sizing: content-box;
-    margin-top: 4px; }
+.app-loader md-progress-linear {
+  width: 80%; }
 
-table.md-table thead tr {
-  height: 0; }
+.triangular-toolbar.ng-enter {
+  -webkit-transition: .5s;
+  transition: .5s; }
 
-.md-table-toolbar input {
-  width: 100%;
-  margin: 0;
-  border: none;
-  color: rgba(0, 0, 0, 0.87); }
-  .md-table-toolbar input:focus {
-    outline: none; }
+.triangular-toolbar.ng-enter {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
-.event-dialog-form md-list-item .md-list-item-inner {
-  padding: 2px; }
-
-.event-dialog-form p {
-  color: rgba(0, 0, 0, 0.54); }
-
-.event-dialog-input-row {
-  padding: 2px; }
-
-.event-dialog-form-color-option .md-text {
-  text-transform: capitalize; }
-
-md-select[md-container-class="calendar-color-select"] md-select-value span {
-  text-transform: capitalize; }
-
-.calendar-color-select md-option {
-  text-transform: capitalize; }
-
-.thumb {
-  width: 200px;
-  margin: 10px;
-  float: left; }
-
-.uploader {
-  clear: both; }
-
-.bar {
-  fill: steelblue; }
-
-.bar:hover {
-  fill: brown; }
-
-.axis--x path {
+.triangular-toolbar.ng-leave {
   display: none; }
 
-.seed-list {
-  list-style: lower-greek; }
+#ui-login {
+  overflow: auto; }
+  #ui-login.ng-enter {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  #ui-login.ng-leave {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
 
-table.md-table td {
-  vertical-align: middle; }
-  table.md-table td img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-sizing: content-box;
-    margin-top: 4px; }
-
-table.md-table thead tr {
-  height: 0; }
-
-.md-table-toolbar input {
-  width: 100%;
-  margin: 0;
-  border: none;
-  color: rgba(0, 0, 0, 0.87); }
-  .md-table-toolbar input:focus {
-    outline: none; }
-
-.event-dialog-form md-list-item .md-list-item-inner {
-  padding: 2px; }
-
-.event-dialog-form p {
-  color: rgba(0, 0, 0, 0.54); }
-
-.event-dialog-input-row {
-  padding: 2px; }
-
-.event-dialog-form-color-option .md-text {
-  text-transform: capitalize; }
-
-md-select[md-container-class="calendar-color-select"] md-select-value span {
-  text-transform: capitalize; }
-
-.calendar-color-select md-option {
-  text-transform: capitalize; }
-
-.thumb {
-  width: 200px;
-  margin: 10px;
-  float: left; }
-
-.uploader {
-  clear: both; }
-
-.bar {
-  fill: steelblue; }
-
-.bar:hover {
-  fill: brown; }
-
-.axis--x path {
-  display: none; }
+md-input-container ng-messages, md-input-container data-ng-messages {
+  display: block; }
 
 .calendar-page {
   padding: 0px 120px; }
@@ -29056,42 +29005,6 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
 
 .calendar-color-select md-option {
   text-transform: capitalize; }
-
-#ui-login {
-  overflow: auto; }
-  #ui-login.ng-enter {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
-  #ui-login.ng-leave {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-delay: 0s;
-    animation-delay: 0s;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
-
-md-input-container ng-messages, md-input-container data-ng-messages {
-  display: block; }
 
 .google-example-chart {
   padding: 24px; }
@@ -29196,6 +29109,127 @@ md-input-container ng-messages, md-input-container data-ng-messages {
 .elements-whiteframe-example md-whiteframe {
   min-width: 500px;
   background-color: white; }
+
+.email-dialog {
+  min-width: 800px;
+  max-width: 800px; }
+
+.email-dialog-ccs {
+  -webkit-transition: all .5s;
+  transition: all .5s; }
+
+.email-dialog-ccs.ng-hide {
+  display: block !important;
+  max-height: 0;
+  opacity: 0; }
+
+.email-subject {
+  margin-bottom: 0px; }
+
+.email-content.focussed > .ta-scroll-window.form-control {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+
+.email-content .ta-editor {
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+
+.email-dialog-editor-toolbar button {
+  font-size: 18px;
+  min-width: 4rem; }
+  .email-dialog-editor-toolbar button i {
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    opacity: 0.5; }
+  .email-dialog-editor-toolbar button.active i, .email-dialog-editor-toolbar button:hover i {
+    opacity: 1; }
+
+.email-single {
+  background: transparent !important; }
+  .email-single md-toolbar {
+    padding: 16px; }
+    .email-single md-toolbar .email-single-title > span {
+      display: block; }
+
+.inbox-list {
+  background: white; }
+
+.inbox-list__email.md-3-line.md-long-text {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.inbox-list__email h3 .md-caption {
+  float: right; }
+
+.inbox-list__email._md-button-wrap > .md-button:first-child ._md-list-item-inner {
+  width: auto; }
+
+.inbox-list__email--active {
+  background: rgba(0, 0, 0, 0.05); }
+  .inbox-list__email--active .md-avatar {
+    display: block;
+    -webkit-animation: swing 1s;
+            animation: swing 1s; }
+
+.inbox-list__email--unread h3 {
+  font-weight: 700 !important; }
+
+.inbox-no-email-selected {
+  text-align: center;
+  opacity: 0.5; }
+  .inbox-no-email-selected h2 {
+    font-weight: lighter; }
+
+.inbox-list__email--animated.ng-move,
+.inbox-list__email--animated.ng-enter,
+.inbox-list__email--animated.ng-leave {
+  -webkit-transition: all linear 0.8s;
+  transition: all linear 0.8s;
+  width: 100%;
+  position: relative; }
+
+.inbox-list__email--animated.ng-leave.ng-leave-active,
+.inbox-list__email--animated.ng-move,
+.inbox-list__email--animated.ng-enter {
+  opacity: 0;
+  max-height: 0; }
+
+.inbox-list__email--animated.ng-leave,
+.inbox-list__email--animated.ng-move.ng-move-active,
+.inbox-list__email--animated.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 500px; }
+
+#ui-admin-email.ng-enter {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+#ui-admin-email.ng-leave {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 .extras-gallery-container {
   height: 100%; }
@@ -29318,127 +29352,6 @@ md-input-container ng-messages, md-input-container data-ng-messages {
   max-width: 90%; }
   .os-windows .error-container {
     max-height: 280px; }
-
-.email-dialog {
-  min-width: 800px;
-  max-width: 800px; }
-
-.email-dialog-ccs {
-  -webkit-transition: all .5s;
-  transition: all .5s; }
-
-.email-dialog-ccs.ng-hide {
-  display: block !important;
-  max-height: 0;
-  opacity: 0; }
-
-.email-subject {
-  margin-bottom: 0px; }
-
-.email-content.focussed > .ta-scroll-window.form-control {
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.12); }
-
-.email-content .ta-editor {
-  border: 1px solid rgba(0, 0, 0, 0.12); }
-
-.email-dialog-editor-toolbar button {
-  font-size: 18px;
-  min-width: 4rem; }
-  .email-dialog-editor-toolbar button i {
-    -webkit-transition: all .2s;
-    transition: all .2s;
-    opacity: 0.5; }
-  .email-dialog-editor-toolbar button.active i, .email-dialog-editor-toolbar button:hover i {
-    opacity: 1; }
-
-.email-single {
-  background: transparent !important; }
-  .email-single md-toolbar {
-    padding: 16px; }
-    .email-single md-toolbar .email-single-title > span {
-      display: block; }
-
-.inbox-list {
-  background: white; }
-
-.inbox-list__email.md-3-line.md-long-text {
-  margin-top: 0px;
-  margin-bottom: 0px; }
-
-.inbox-list__email h3 .md-caption {
-  float: right; }
-
-.inbox-list__email._md-button-wrap > .md-button:first-child ._md-list-item-inner {
-  width: auto; }
-
-.inbox-list__email--active {
-  background: rgba(0, 0, 0, 0.05); }
-  .inbox-list__email--active .md-avatar {
-    display: block;
-    -webkit-animation: swing 1s;
-            animation: swing 1s; }
-
-.inbox-list__email--unread h3 {
-  font-weight: 700 !important; }
-
-.inbox-no-email-selected {
-  text-align: center;
-  opacity: 0.5; }
-  .inbox-no-email-selected h2 {
-    font-weight: lighter; }
-
-.inbox-list__email--animated.ng-move,
-.inbox-list__email--animated.ng-enter,
-.inbox-list__email--animated.ng-leave {
-  -webkit-transition: all linear 0.8s;
-  transition: all linear 0.8s;
-  width: 100%;
-  position: relative; }
-
-.inbox-list__email--animated.ng-leave.ng-leave-active,
-.inbox-list__email--animated.ng-move,
-.inbox-list__email--animated.ng-enter {
-  opacity: 0;
-  max-height: 0; }
-
-.inbox-list__email--animated.ng-leave,
-.inbox-list__email--animated.ng-move.ng-move-active,
-.inbox-list__email--animated.ng-enter.ng-enter-active {
-  opacity: 1;
-  max-height: 500px; }
-
-#ui-admin-email.ng-enter {
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-#ui-admin-email.ng-leave {
-  -webkit-animation-name: slideOutRight;
-  animation-name: slideOutRight;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
 
 .md-select-form {
   display: inline-block;
@@ -29591,35 +29504,6 @@ md-input-container ng-messages, md-input-container data-ng-messages {
   width: 40px;
   border-radius: 50%;
   z-index: 5; }
-
-.triangular-loader {
-  background: #fff; }
-
-.app-loader md-progress-linear {
-  width: 80%; }
-
-.triangular-toolbar.ng-enter {
-  -webkit-transition: .5s;
-  transition: .5s; }
-
-.triangular-toolbar.ng-enter {
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-.triangular-toolbar.ng-leave {
-  display: none; }
 
 .login-frame md-card {
   max-width: 400px; }

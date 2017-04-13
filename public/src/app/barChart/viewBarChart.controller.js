@@ -46,11 +46,11 @@
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
-                            for (var j = 0; j < response.data[i].length; j++) {
+                            for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: p,
+                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                     x: response.data[i][j]['5YRS'],
                                     y: response.data[i][j].avg_value
 
@@ -58,7 +58,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: i,
+                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                 values: $scope.data1
                             });
 
@@ -80,11 +80,11 @@
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
-                            for (var j = 0; j < response.data[i].length; j++) {
+                            for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: p,
+                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                     x: response.data[i][j]['10YRS'],
                                     y: response.data[i][j].avg_value
 
@@ -92,7 +92,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: i,
+                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                 values: $scope.data1
                             });
 
@@ -112,11 +112,11 @@
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
-                            for (var j = 0; j < response.data[i].length; j++) {
+                            for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: p,
+                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                     x: response.data[i][j]['years'],
                                     y: response.data[i][j].value
 
@@ -124,7 +124,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: i,
+                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                 values: $scope.data1
                             });
 
@@ -137,6 +137,7 @@
         }
 
         function createSelectOptions() {
+      
           $scope.data1 = [];
           $scope.data = [];
             var params = $localStorage.selectedData;
@@ -148,11 +149,11 @@
                     var p = 0;
                     for (var i = 0; i < response.data.length; i++) {
                         $scope.data1 = [];
-                        for (var j = 0; j < response.data[i].length; j++) {
+                        for (var j = 0; j < response.data[i].length-1; j++) {
                             //console.log(response.data[i][j].country_id);
                             //console.log(response.data[i][j]['5YRS']);
                             $scope.data1.push({
-                                key: p,
+                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                                 x: response.data[i][j]['years'],
                                 y: response.data[i][j].value
 
@@ -160,7 +161,7 @@
                         }
                         p = p + 1;
                         $scope.data.push({
-                            key: i,
+                            key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
                             values: $scope.data1
                         });
 
@@ -212,6 +213,14 @@
         }
 
         // init
+        Data.getCountrys(function(res) {
+
+
+            $scope.Countrys = res.data;
+
+        }, function() {
+            $rootScope.error = 'Failed to fetch restricted API content.';
+        });
         createSelectOptions();
 
     }

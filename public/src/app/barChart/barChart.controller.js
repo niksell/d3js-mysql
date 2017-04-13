@@ -69,7 +69,7 @@
                 definitionId: $scope.defin,
             }
 
-            
+
             $rootScope.selectedData = params;
 
             $localStorage.selectedData=params;
