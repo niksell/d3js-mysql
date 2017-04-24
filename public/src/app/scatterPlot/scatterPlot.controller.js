@@ -47,6 +47,13 @@
             $rootScope.selectedData = params;
             console.log(params);
             $localStorage.selectedData=params;
+            $scope.country;
+            for (var k = 0; k < $scope.Countrys.length; k++) {
+              if ($scope.Countrys[k].id==$scope.countryId) {
+                $scope.country=$scope.Countrys[k].country;
+              }
+            }
+            $localStorage.scatterCountry=$scope.country;
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {
                     $rootScope.values = response.data;

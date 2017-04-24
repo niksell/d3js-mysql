@@ -44,12 +44,18 @@
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
+                            $scope.country;
+                            for (var k = 0; k < $localStorage.Countrys.length; k++) {
+                              if ($localStorage.Countrys[k].id==(response.data[i][response.data[i].length-1])) {
+                                $scope.country=$localStorage.Countrys[k].country;
+                              }
+                            }
                             for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 console.log(response.data[i].length);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                    key: $scope.country,
                                     x: response.data[i][j]['5YRS'].split('-')[0],
                                     y: response.data[i][j].avg_value
 
@@ -57,7 +63,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                key: $scope.country,
                                 values: $scope.data1
                             });
 
@@ -77,12 +83,19 @@
 
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
+
                             $scope.data1 = [];
+                            $scope.country;
+                            for (var k = 0; k < $localStorage.Countrys.length; k++) {
+                              if ($localStorage.Countrys[k].id==(response.data[i][response.data[i].length-1])) {
+                                $scope.country=$localStorage.Countrys[k].country;
+                              }
+                            }
                             for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                    key: $scope.country,
                                     x: response.data[i][j]['10YRS'],
                                     y: response.data[i][j].avg_value
 
@@ -90,7 +103,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                key:$scope.country,
                                 values: $scope.data1
                             });
 
@@ -108,11 +121,17 @@
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
+                            $scope.country;
+                            for (var k = 0; k < $localStorage.Countrys.length; k++) {
+                              if ($localStorage.Countrys[k].id==(response.data[i][response.data[i].length-1])) {
+                                $scope.country=$localStorage.Countrys[k].country;
+                              }
+                            }
                             for (var j = 0; j < response.data[i].length-1; j++) {
                                 //console.log(response.data[i][j].country_id);
                                 //console.log(response.data[i][j]['5YRS']);
                                 $scope.data1.push({
-                                    key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                    key: $scope.country,
                                     x: response.data[i][j]['years'],
                                     y: response.data[i][j].value
 
@@ -120,7 +139,7 @@
                             }
                             p = p + 1;
                             $scope.data.push({
-                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                key: $scope.country,
                                 values: $scope.data1
                             });
 
@@ -145,11 +164,17 @@
                     console.log(response);
                     for (var i = 0; i < response.data.length; i++) {
                         $scope.data1 = [];
+                        $scope.country;
+                        for (var k = 0; k < $localStorage.Countrys.length; k++) {
+                          if ($localStorage.Countrys[k].id==(response.data[i][response.data[i].length-1])) {
+                            $scope.country=$localStorage.Countrys[k].country;
+                          }
+                        }
                         for (var j = 0; j < response.data[i].length-1; j++) {
                             //console.log(response.data[i][j].country_id);
                             //console.log(response.data[i][j]['5YRS']);
                             $scope.data1.push({
-                                key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                                key: $scope.country,
                                 x: response.data[i][j]['years'],
                                 y: response.data[i][j].value
 
@@ -157,7 +182,7 @@
                         }
                         p = p + 1;
                         $scope.data.push({
-                            key: $scope.Countrys[response.data[i][response.data[i].length-1]].country,
+                            key: $scope.country,
                             values: $scope.data1
                         });
 
@@ -198,7 +223,7 @@
                 },
             title: {
                 enable: true,
-                text: 'Title for Line Chart'
+                text: $rootScope.title
             },
 
 
@@ -209,7 +234,7 @@
         Data.getCountrys(function(res) {
 
 
-            $scope.Countrys = res.data;
+            //$localStorage.Countrys = res.data;
 
         }, function() {
             $rootScope.error = 'Failed to fetch restricted API content.';

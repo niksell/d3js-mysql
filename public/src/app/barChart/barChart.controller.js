@@ -68,10 +68,16 @@
                 countryId: $scope.countryId,
                 definitionId: $scope.defin,
             }
-
+            var name;
+            for (var k = 0; k < $scope.Definitions.length; k++) {
+              if ($scope.Definitions[k].id==$scope.defin) {
+                name=$scope.Definitions[k].Indicator_name;
+              }
+            }
+            $localStorage.title=name;
 
             $rootScope.selectedData = params;
-
+            $localStorage.Countrys=$scope.Countrys;
             $localStorage.selectedData=params;
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {

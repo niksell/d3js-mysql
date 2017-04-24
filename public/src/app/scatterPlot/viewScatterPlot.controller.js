@@ -61,7 +61,7 @@
                           }
                           p = p + 1;
                           $scope.data.push({
-                              key: "Group"+0,
+                              key: $localStorage.scatterCountry,
                               values: $scope.data1
                           });
 
@@ -98,7 +98,7 @@
                           }
                           p = p + 1;
                           $scope.data.push({
-                              key: "Group"+0,
+                              key: $localStorage.scatterCountry,
                               values: $scope.data1
                           });
 
@@ -135,7 +135,7 @@
                           }
                           p = p + 1;
                           $scope.data.push({
-                              key: "Group"+0,
+                              key: $localStorage.scatterCountry,
                               values: $scope.data1
                           });
 
@@ -190,6 +190,7 @@
 
             $http.post(API_CONFIG.BASE + '/api/singleYears', params)
                 .success(function(response) {
+                    console.log("nfdrtsterte");
                     console.log(response);
                     var p = 0;
                     //for (var i = 0; i < response.data.length-1; i++) {
@@ -211,7 +212,7 @@
                         }
                         p = p + 1;
                         $scope.data.push({
-                            key: "Group"+0,
+                            key: $localStorage.scatterCountry,
                             values: $scope.data1
                         });
 

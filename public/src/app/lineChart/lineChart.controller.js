@@ -68,8 +68,15 @@
                 countryId: $scope.countryId,
                 definitionId: $scope.defin,
             }
-
-
+            var name;
+            for (var k = 0; k < $scope.Definitions.length; k++) {
+              if ($scope.Definitions[k].id==$scope.defin) {
+                console.log($scope.Definitions[k]);
+                name=$scope.Definitions[k].Indicator_name;
+              }
+            }
+            $rootScope.title=name;
+            console.log(name);
             $rootScope.selectedData = params;
 
             $localStorage.selectedData=params;
