@@ -26,9 +26,6 @@
         $scope.Countrys;
         $scope.Definitions;
 
-        ////////////**************************************///////////////////////////////////
-        vm.lat;
-        vm.lon;
 
         vm.createSelectOptions = createSelectOptions;
         $scope.test = function() {
@@ -46,11 +43,7 @@
                   }
                   i=i+1;
                 }
-                /*for (var i = 0; i < $scope.countryId.length; i++) {
-
-                    temp.push($scope.countryId[i]);
-                }*/
-
+        
 
                 $scope.countryId.length = 0;
                 for (var i = 0; i < 3; i++) {
@@ -61,8 +54,6 @@
             }
         }
         $scope.update1 = function() {
-            console.log("mphka");
-            console.log($scope.countryId);
 
             var params = {
                 countryId: $scope.countryId,
@@ -71,12 +62,10 @@
             var name;
             for (var k = 0; k < $scope.Definitions.length; k++) {
               if ($scope.Definitions[k].id==$scope.defin) {
-                console.log($scope.Definitions[k]);
                 name=$scope.Definitions[k].Indicator_name;
               }
             }
             $rootScope.title=name;
-            console.log(name);
             $rootScope.selectedData = params;
 
             $localStorage.selectedData=params;

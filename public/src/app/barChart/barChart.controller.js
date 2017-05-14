@@ -61,9 +61,7 @@
             }
         }
         $scope.update1 = function() {
-            console.log("mphka");
-            console.log($scope.countryId);
-
+        
             var params = {
                 countryId: $scope.countryId,
                 definitionId: $scope.defin,

@@ -21,10 +21,15 @@
                             <md-icon class="padding-right-10" md-font-icon="zmdi zmdi-access-time"></md-icon>
                             <md-select class="padding-right-10" placeholder="{{'Definitions' | triTranslate}}" ng-model="defin2">
                                 <md-option ng-repeat="definition in Definitions" ng-value="definition.id">{{definition.Indicator_name}}</md-option>
+                                <md-selected-text>
+                                {{definition.Long_definition}}  
+                                </md-selected-text>
                             </md-select>
 
                         </div>
                     </div>
+                  </div>
+                  <div layout="row">
                     <div class="event-dialog-input-row" layout="row" layout-align="start center">
                         <p flex translate>Country </p>
                         <div layout="row" layout-align="end center">

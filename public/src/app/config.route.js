@@ -46,8 +46,8 @@
 
 
         // set default routes when no path specified
-        $urlRouterProvider.when('', '/eurozone/barChart');
-        $urlRouterProvider.when('/', '/eurozone/barChart');
+        $urlRouterProvider.when('', '/home');
+        $urlRouterProvider.when('/', '/home');
 
         // always goto 404 if route not found
         $urlRouterProvider.otherwise('/404');

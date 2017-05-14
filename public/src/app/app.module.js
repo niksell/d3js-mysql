@@ -8,7 +8,8 @@
             'ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngMaterial','satellizer','ngStorage','ngResource','flow','vAccordion',
             'googlechart', 'chart.js', 'linkify', 'ui.calendar', 'angularMoment', 'textAngular', 'uiGmapgoogle-maps', 'hljs', 'md.data.table', angularDragula(angular), 'ngFileUpload', 'nvd3',
 
-            'app.translate','multiselect-searchtree','isteven-multi-select',
+            'app.translate',
+            'multiselect-searchtree','isteven-multi-select',
             // only need one language?  if you want to turn off translations
             // comment out or remove the 'app.translate', line above
 
@@ -19,7 +20,6 @@
             // uncomment above to activate the example seed module
             //'seed-module',
             'eurozone','barChart','lineChart','scatterPlot',
-            //'app.permission'//,'app.examples'
         ])
 
         // set a constant for the API we are connecting to

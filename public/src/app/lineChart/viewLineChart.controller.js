@@ -40,7 +40,6 @@
                 var params = $rootScope.selectedData;
                 $http.post(API_CONFIG.BASE + '/api/avg5YRS', params)
                     .success(function(response) {
-                      console.log(response);
                         var p = 0;
                         for (var i = 0; i < response.data.length; i++) {
                             $scope.data1 = [];
@@ -51,9 +50,7 @@
                               }
                             }
                             for (var j = 0; j < response.data[i].length-1; j++) {
-                                //console.log(response.data[i][j].country_id);
-                                console.log(response.data[i].length);
-                                //console.log(response.data[i][j]['5YRS']);
+
                                 $scope.data1.push({
                                     key: $scope.country,
                                     x: response.data[i][j]['5YRS'].split('-')[0],
@@ -92,8 +89,7 @@
                               }
                             }
                             for (var j = 0; j < response.data[i].length-1; j++) {
-                                //console.log(response.data[i][j].country_id);
-                                //console.log(response.data[i][j]['5YRS']);
+
                                 $scope.data1.push({
                                     key: $scope.country,
                                     x: response.data[i][j]['10YRS'],
@@ -128,8 +124,7 @@
                               }
                             }
                             for (var j = 0; j < response.data[i].length-1; j++) {
-                                //console.log(response.data[i][j].country_id);
-                                //console.log(response.data[i][j]['5YRS']);
+
                                 $scope.data1.push({
                                     key: $scope.country,
                                     x: response.data[i][j]['years'],
@@ -160,8 +155,7 @@
             $http.post(API_CONFIG.BASE + '/api/singleYears', params)
                 .success(function(response) {
                     var p = 0;
-                    console.log("222223");
-                    console.log(response);
+
                     for (var i = 0; i < response.data.length; i++) {
                         $scope.data1 = [];
                         $scope.country;
@@ -171,8 +165,7 @@
                           }
                         }
                         for (var j = 0; j < response.data[i].length-1; j++) {
-                            //console.log(response.data[i][j].country_id);
-                            //console.log(response.data[i][j]['5YRS']);
+
                             $scope.data1.push({
                                 key: $scope.country,
                                 x: response.data[i][j]['years'],

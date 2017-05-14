@@ -31,13 +31,7 @@ class yearController extends Controller
 
     try {
         $data['status'] = 1;
-      /*  for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
-          $values[$i] = YearsValues::select('5YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))
-          ->where('country_id',$request->input('countryId')[$i])->groupBy('5YRS')->get()->toArray();
 
-
-        }
-        $data['data'] = $values;*/
         if(sizeof($request->input('countryId'))>=1 && sizeof($request->input('definitionId'))==1){
           for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
             $values[$i] = YearsValues::select('5YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))
@@ -72,13 +66,7 @@ class yearController extends Controller
 
     try {
         $data['status'] = 1;
-        /*for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
-          $values[$i] = YearsValues::select('10YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))
-          ->where('country_id',$request->input('countryId')[$i])->groupBy('10YRS')->get()->toArray();
 
-
-        }
-        $data['data'] = $values;*/
         if(sizeof($request->input('countryId'))>=1 && sizeof($request->input('definitionId'))==1){
           for ($i=0; $i <sizeof($request->input('countryId')) ; $i++) {
             $values[$i] = YearsValues::select('10YRS',DB::raw('avg(value) as avg_value'))->where('source_id', $request->input('definitionId'))

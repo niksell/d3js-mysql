@@ -14,9 +14,7 @@
           views: {
                     '@triangular': {
                             templateUrl: 'app/eurozone/eurozone.tmpl.html',
-                            // set the controller to load for this page
-                            //controller: 'lineChartPageController',
-                            //controllerAs: 'vm',
+
 
                           }
                     },

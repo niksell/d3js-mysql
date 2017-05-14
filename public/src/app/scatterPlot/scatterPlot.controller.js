@@ -33,7 +33,6 @@
         vm.createSelectOptions = createSelectOptions;
 
         $scope.update1 = function() {
-            console.log("mphka");
             $scope.defin=[];
             $scope.defin.push($scope.defin1);
             $scope.defin.push($scope.defin2);
@@ -45,7 +44,6 @@
 
 
             $rootScope.selectedData = params;
-            console.log(params);
             $localStorage.selectedData=params;
             $scope.country;
             for (var k = 0; k < $scope.Countrys.length; k++) {
@@ -53,6 +51,20 @@
                 $scope.country=$scope.Countrys[k].country;
               }
             }
+            var name1;
+            for (var k = 0; k < $scope.Definitions.length; k++) {
+              if ($scope.Definitions[k].id==$scope.defin1) {
+                name1=$scope.Definitions[k].Indicator_name;
+              }
+            }
+            var name2;
+            for (var k = 0; k < $scope.Definitions.length; k++) {
+              if ($scope.Definitions[k].id==$scope.defin2) {
+                name2=$scope.Definitions[k].Indicator_name;
+              }
+            }
+            $localStorage.nameX=name1;
+            $localStorage.nameY=name2;
             $localStorage.scatterCountry=$scope.country;
             $http.post(API_CONFIG.BASE + '/api/years', params)
                 .success(function(response) {
@@ -74,7 +86,7 @@
             });
             Data.getDefinitions(function(res) {
 
-
+                console.log(res);
                 $scope.Definitions = res.data;
 
             }, function() {
